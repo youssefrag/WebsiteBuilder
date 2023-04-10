@@ -11,3 +11,5 @@
 ## Save website as JSON object once completed
 
 ## Save to PSQL Database
+
+## Create function for opening newly generated website to a new tab
