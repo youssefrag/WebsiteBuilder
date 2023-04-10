@@ -18,4 +18,6 @@
 
 ## Be able to edit components and save them again
 
-# Technologies used will be PSQL, MUI, React, Node
+## Technologies used will be PSQL, MUI, React, Node
+
+## Drag and drop will be done with airplane.dev library
