@@ -1,12 +1,12 @@
 import { Box, Typography } from "@mui/material";
 
+import { HomeContainer } from "./home.styles";
+
 const Home = () => {
   return (
-    <Box
-      sx={{ backgroundColor: "red", height: "500000px", marginTop: "300px" }}
-    >
+    <HomeContainer>
       <Typography>Hello</Typography>
-    </Box>
+    </HomeContainer>
   );
 };
 

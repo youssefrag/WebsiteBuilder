@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
-import { Typography, Button, IconButton } from "@mui/material";
+import { Typography } from "@mui/material";
 
 import {
   NavigationContainer,
   StyledAppBar,
+  StyledButton,
   StyledToolBar,
 } from "./navigation.styles";
 
@@ -16,7 +17,7 @@ const Navigation = () => {
             <Typography variant="h6" component="div">
               WebsiteBuilder
             </Typography>
-            <Button color="inherit">Login</Button>
+            <StyledButton>Login</StyledButton>
           </StyledToolBar>
         </StyledAppBar>
       </NavigationContainer>
