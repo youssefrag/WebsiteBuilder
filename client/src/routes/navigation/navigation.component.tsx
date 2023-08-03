@@ -1,32 +1,23 @@
+import { Typography, Button, IconButton } from "@mui/material";
+
 import {
-  AppBar,
-  Box,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-  Menu,
-} from "@mui/material";
+  NavigationContainer,
+  StyledAppBar,
+  StyledToolBar,
+} from "./navigation.styles";
 
 const Navigation = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ margin: 0 }}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            // sx={{ mr: 2 }}
-          ></IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+    <NavigationContainer>
+      <StyledAppBar position="static">
+        <StyledToolBar>
+          <Typography variant="h6" component="div">
+            WebsiteBuilder
           </Typography>
           <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+        </StyledToolBar>
+      </StyledAppBar>
+    </NavigationContainer>
   );
 };
 
