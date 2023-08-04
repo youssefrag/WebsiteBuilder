@@ -51,4 +51,5 @@ export const StyledTitle = styled(Typography)(() => ({
   fontFamily: "Rubik",
   color: "#333",
   fontSize: "1.8rem",
+  cursor: "pointer",
 }));

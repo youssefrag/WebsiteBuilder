@@ -1,7 +1,7 @@
-import React from "react";
+import { PageContainer } from "./LoginRegister.styles";
 
 const LoginRegister = () => {
-  return <div>LoginRegister</div>;
+  return <PageContainer>LoginRegister</PageContainer>;
 };
 
 export default LoginRegister;
