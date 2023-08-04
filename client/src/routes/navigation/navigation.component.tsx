@@ -16,7 +16,9 @@ const Navigation = () => {
       <NavigationContainer>
         <StyledAppBar position="static">
           <StyledToolBar>
-            <StyledTitle variant="h6">WebsiteBuilder</StyledTitle>
+            <StyledTitle variant="h6">
+              Website<a style={{ color: "#e67e22" }}>B</a>uilder
+            </StyledTitle>
             <LinkContainer>
               <StyledLink>Login</StyledLink>
               <StyledButton>Start Building</StyledButton>
