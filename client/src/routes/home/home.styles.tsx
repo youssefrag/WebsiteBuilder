@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 
-import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export const HomeContainer = styled(Box)(() => ({
   backgroundColor: "#fdf2e9",
