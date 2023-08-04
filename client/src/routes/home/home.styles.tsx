@@ -19,9 +19,10 @@ export const DescriptionContainer = styled(Box)(() => ({
 
 export const DescriptionText = styled(Typography)(() => ({
   fontFamily: "Rubik",
-  lineHeight: "1.6",
+  lineHeight: "1.5",
   fontSize: "1.1rem",
   color: "#555",
+  fontWeight: "500",
 }));
 
 export const DescriptionTitle = styled(Typography)(() => ({

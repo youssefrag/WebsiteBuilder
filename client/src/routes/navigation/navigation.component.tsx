@@ -23,7 +23,7 @@ const Navigation = () => {
             </StyledTitle>
             <LinkContainer>
               <StyledLink onClick={() => navigate("login-register")}>
-                Login
+                Login / Register
               </StyledLink>
               <StyledButton>Start Building</StyledButton>
             </LinkContainer>

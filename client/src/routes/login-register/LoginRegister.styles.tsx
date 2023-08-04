@@ -16,6 +16,9 @@ export const LoginRegisterContainer = styled(Box)(() => ({
   borderRadius: "11px",
   boxShadow: "0 2.4rem 4.8rem rgba(0, 0, 0, 0.15)",
   padding: "3rem 5rem",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-around",
 }));
 
 export const StyledTitle = styled(Typography)(() => ({
@@ -55,6 +58,8 @@ export const StyledTextfield = styled(TextField)(() => ({
     background: "#fff",
   },
   "& .MuiInputBase-input": {
+    color: "#666",
+    fontFamily: "Rubik",
     fontSize: "1.2rem",
     fontWeight: 700,
   },
