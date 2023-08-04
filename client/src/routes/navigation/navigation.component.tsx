@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
-import { Typography } from "@mui/material";
 
 import {
+  LinkContainer,
   NavigationContainer,
   StyledAppBar,
   StyledButton,
+  StyledLink,
+  StyledTitle,
   StyledToolBar,
 } from "./navigation.styles";
 
@@ -14,10 +16,11 @@ const Navigation = () => {
       <NavigationContainer>
         <StyledAppBar position="static">
           <StyledToolBar>
-            <Typography variant="h6" component="div">
-              WebsiteBuilder
-            </Typography>
-            <StyledButton>Login</StyledButton>
+            <StyledTitle variant="h6">WebsiteBuilder</StyledTitle>
+            <LinkContainer>
+              <StyledLink>Login</StyledLink>
+              <StyledButton>Start Building</StyledButton>
+            </LinkContainer>
           </StyledToolBar>
         </StyledAppBar>
       </NavigationContainer>
