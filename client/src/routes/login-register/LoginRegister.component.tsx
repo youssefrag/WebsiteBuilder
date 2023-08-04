@@ -4,6 +4,7 @@ import {
   StyledButton,
   StyledTextfield,
   StyledTitle,
+  SwitchContainer,
   SwitchText,
   TextfieldContainer,
 } from "./LoginRegister.styles";
@@ -32,6 +33,9 @@ const LoginRegister = () => {
             placeholder="Confirm Password"
             name="confirmPassword"
           ></StyledTextfield>
+          <SwitchContainer>
+            <SwitchText>Already registered? Login</SwitchText>
+          </SwitchContainer>
           <StyledButton>Register</StyledButton>
         </TextfieldContainer>
       </LoginRegisterContainer>

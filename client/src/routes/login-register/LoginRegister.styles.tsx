@@ -37,6 +37,9 @@ export const SwitchText = styled(Typography)(() => ({
   fontSize: "1rem",
   fontWeight: "700",
   color: "#45260a",
+  "&:hover": {
+    color: "#fff",
+  },
 }));
 
 export const TextfieldContainer = styled(Box)(() => ({
@@ -62,7 +65,18 @@ export const StyledButton = styled(Button)(() => ({
   fontFamily: "Rubik",
   fontSize: "1.3rem",
   width: "80%",
-  height: "3rem",
+  height: "3.2rem",
   backgroundColor: "#45260a",
   textTransform: "capitalize",
+  borderRadius: "9px",
+  "&:hover": {
+    backgroundColor: "#fff",
+    color: "#45260a",
+  },
+}));
+
+export const SwitchContainer = styled(Box)(() => ({
+  display: "flex",
+  alignItems: "center",
+  cursor: "pointer",
 }));
