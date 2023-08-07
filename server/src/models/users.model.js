@@ -11,7 +11,7 @@ const findUser = async (userData) => {
       email,
       password,
     },
-    "name email -password"
+    { name: 1, email: 1 }
   );
 };
 

@@ -64,7 +64,7 @@ const LoginRegister = () => {
       alert("Passwords not matching");
       return;
     }
-    let response = await fetch("http://localhost:8000/users", {
+    let response = await fetch("http://localhost:8000/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -87,6 +87,23 @@ const LoginRegister = () => {
     const value = element.value;
     const name = element.name;
     setUserLogin((prev) => ({ ...userLogin, [name]: value || "" }));
+  };
+
+  const handleLoginSubmit = async () => {
+    const { email, password } = userLogin;
+    if (!email || !password) {
+      alert("Missing field");
+      return;
+    }
+    let response = await fetch("http://localhost:8000/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userLogin),
+    });
+    let result = await response.json();
+    console.log(result);
   };
 
   if (page === "register") {
@@ -160,7 +177,7 @@ const LoginRegister = () => {
             <SwitchContainer>
               <SwitchText onClick={switchPage}>New user? Register</SwitchText>
             </SwitchContainer>
-            <StyledButton>Login</StyledButton>
+            <StyledButton onClick={handleLoginSubmit}>Login</StyledButton>
           </TextfieldContainer>
         </LoginRegisterContainer>
       </PageContainer>
