@@ -11,6 +11,8 @@ import {
   TextfieldContainer,
 } from "./LoginRegister.styles";
 
+import { RegisterData } from "./LoginRegister.types";
+
 const LoginRegister = () => {
   const [page, setPage] = useState("register");
 
@@ -22,6 +24,22 @@ const LoginRegister = () => {
     }
   };
 
+  // Handle register data
+
+  const [userRegister, setUserRegister] = useState<RegisterData>({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleRegisterChange = (e: React.FormEvent) => {
+    const element = e.currentTarget as HTMLInputElement;
+    const value = element.value;
+    const name = element.name;
+    setUserRegister((prev) => ({ ...userRegister, [name]: value || "" }));
+  };
+
   if (page === "register") {
     return (
       <PageContainer>
@@ -31,20 +49,24 @@ const LoginRegister = () => {
             <StyledTextfield
               placeholder="Enter Name"
               name="name"
+              onChange={handleRegisterChange}
             ></StyledTextfield>
             <StyledTextfield
               placeholder="Enter Email Address"
               name="email"
+              onChange={handleRegisterChange}
             ></StyledTextfield>
             <StyledTextfield
               type="password"
               placeholder="Enter Password"
               name="password"
+              onChange={handleRegisterChange}
             ></StyledTextfield>
             <StyledTextfield
               type="password"
               placeholder="Confirm Password"
               name="confirmPassword"
+              onChange={handleRegisterChange}
             ></StyledTextfield>
             <SwitchContainer>
               <SwitchText onClick={switchPage}>
