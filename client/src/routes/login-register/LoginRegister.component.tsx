@@ -14,12 +14,27 @@ import {
 import { LoginData, RegisterData } from "./LoginRegister.types";
 
 const LoginRegister = () => {
+  // Switch page between login and register
+
   const [page, setPage] = useState("register");
 
+  const resetTextfields = () => {
+    setUserLogin({ email: "", password: "" });
+    setUserRegister({
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+  };
+
   const switchPage = () => {
+    console.log("reached here");
     if (page === "login") {
+      resetTextfields();
       setPage("register");
     } else {
+      resetTextfields();
       setPage("login");
     }
   };
@@ -82,18 +97,21 @@ const LoginRegister = () => {
           <TextfieldContainer>
             <StyledTextfield
               required
+              value={userRegister.name}
               placeholder="Enter Name"
               name="name"
               onChange={handleRegisterChange}
             ></StyledTextfield>
             <StyledTextfield
               required
+              value={userRegister.email}
               placeholder="Enter Email Address"
               name="email"
               onChange={handleRegisterChange}
             ></StyledTextfield>
             <StyledTextfield
               required
+              value={userRegister.password}
               type="password"
               placeholder="Enter Password"
               name="password"
@@ -101,6 +119,7 @@ const LoginRegister = () => {
             ></StyledTextfield>
             <StyledTextfield
               required
+              value={userRegister.confirmPassword}
               type="password"
               placeholder="Confirm Password"
               name="confirmPassword"
@@ -124,12 +143,14 @@ const LoginRegister = () => {
           <TextfieldContainer>
             <StyledTextfield
               required
+              value={userLogin.email}
               placeholder="Enter Email Address"
               name="email"
               onChange={handleLoginChange}
             ></StyledTextfield>
             <StyledTextfield
               required
+              value={userLogin.password}
               type="password"
               placeholder="Enter Password"
               name="password"
