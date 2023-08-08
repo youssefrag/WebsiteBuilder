@@ -1,8 +1,10 @@
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import { useSelector, useDispatch } from "react-redux";
 
-import { selectUser, loginUser, logoutUser } from "../../store/user/userSlice";
+import { selectUser, loginUser } from "../../store/user/userSlice";
 
 import {
   LoginRegisterContainer,
@@ -19,7 +21,10 @@ import { LoginData, RegisterData } from "./LoginRegister.types";
 
 const LoginRegister = () => {
   const currentUser = useSelector(selectUser);
+  console.log(currentUser);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   // Switch page between login and register
 
@@ -78,6 +83,11 @@ const LoginRegister = () => {
       body: JSON.stringify(userRegister),
     });
     let result = await response.json();
+
+    if (result.message === "User was created") {
+      dispatch(loginUser({ name: result.user.name, email: result.user.email }));
+      navigate("/websites");
+    }
     if (result.message === "Email already in use") {
       alert("Email is already in use");
     }
@@ -114,6 +124,7 @@ const LoginRegister = () => {
 
     if (result.message === "Successful login") {
       dispatch(loginUser({ name: result.user.name, email: result.user.email }));
+      navigate("/websites");
     } else if (result.message === "Wrong login info") {
       alert("Wrong login info");
     }
