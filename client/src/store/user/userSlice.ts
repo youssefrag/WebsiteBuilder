@@ -13,16 +13,12 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     loginUser: (state, action: PayloadAction<User>) => {
-      if (state !== null) {
-        console.log(state);
-        state.user = action.payload;
-      }
-      console.log("State is null");
+      state.user = action.payload;
+      console.log("state", state.user);
     },
     logoutUser: (state) => {
-      if (state !== null) {
-        state.user = null;
-      }
+      state.user = null;
+      console.log("state", state.user);
     },
   },
 });
@@ -31,6 +27,6 @@ export const { loginUser, logoutUser } = userSlice.actions;
 
 type RootState = ReturnType<typeof store.getState>;
 
-export const selectUser = (state: RootState) => state.user;
+export const selectUser = (state: RootState) => state.user.user;
 
 export default userSlice.reducer;

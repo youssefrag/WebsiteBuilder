@@ -36,7 +36,6 @@ const LoginRegister = () => {
   };
 
   const switchPage = () => {
-    console.log("reached here");
     if (page === "login") {
       resetTextfields();
       setPage("register");
@@ -112,7 +111,6 @@ const LoginRegister = () => {
       body: JSON.stringify(userLogin),
     });
     let result = await response.json();
-    console.log(result);
 
     if (result.message === "Successful login") {
       dispatch(loginUser({ name: result.user.name, email: result.user.email }));
