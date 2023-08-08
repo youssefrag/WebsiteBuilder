@@ -37,7 +37,8 @@ const Navigation = () => {
               </StyledTitle>
               <LinkContainer>
                 <StyledLink onClick={() => navigate("login-register")}>
-                  {getFirstName(currentUser.name)}'s Websites
+                  {/* {getFirstName(currentUser.name)}'s Websites */}
+                  's Websites
                 </StyledLink>
                 <StyledButton onClick={handleLogout}>Logout</StyledButton>
               </LinkContainer>

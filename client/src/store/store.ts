@@ -1,10 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./user/userSlice";
+import { rootReducer } from "./root-reducer";
+import storage from "redux-persist/lib/storage";
+import { persistReducer, persistStore } from "redux-persist";
 
-const store = configureStore({
-  reducer: {
-    user: userReducer,
-  },
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
 });
 
-export default store;
+export const persistor = persistStore(store);
