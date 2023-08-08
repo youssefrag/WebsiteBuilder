@@ -103,7 +103,11 @@ const LoginRegister = () => {
       body: JSON.stringify(userLogin),
     });
     let result = await response.json();
-    console.log(result);
+    console.log(result.message);
+
+    if (result.message === "Wrong login info") {
+      alert("Wrong login info");
+    }
   };
 
   if (page === "register") {
