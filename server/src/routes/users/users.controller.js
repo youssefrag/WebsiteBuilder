@@ -1,7 +1,14 @@
-const { createUser, findUser } = require("../../models/users.model");
+const {
+  createUser,
+  findUser,
+  userExists,
+} = require("../../models/users.model");
 
 const httpCreateUser = async (req, res) => {
   const { name, email, password } = req.body;
+  if (await userExists(email)) {
+    return res.status(400).json({ message: "Email already in use" });
+  }
   return res.status(200).json(await createUser({ name, email, password }));
 };
 

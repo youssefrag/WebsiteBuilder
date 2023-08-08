@@ -15,4 +15,12 @@ const findUser = async (userData) => {
   );
 };
 
-module.exports = { createUser, findUser };
+const userExists = async (email) => {
+  const user = await usersDatabase.findOne({ email }, { email: 1 });
+  if (!user) {
+    return false;
+  }
+  return true;
+};
+
+module.exports = { createUser, findUser, userExists };

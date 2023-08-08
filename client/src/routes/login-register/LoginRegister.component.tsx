@@ -72,7 +72,9 @@ const LoginRegister = () => {
       body: JSON.stringify(userRegister),
     });
     let result = await response.json();
-    console.log(result);
+    if (result.message === "Email already in use") {
+      alert("Email is already in use");
+    }
   };
 
   // Handle login data
