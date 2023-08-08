@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+import { useSelector, useDispatch } from "react-redux";
+
+import { selectUser, loginUser, logoutUser } from "../../store/user/userSlice";
+
 import {
   LoginRegisterContainer,
   PageContainer,
@@ -14,6 +18,9 @@ import {
 import { LoginData, RegisterData } from "./LoginRegister.types";
 
 const LoginRegister = () => {
+  const currentUser = useSelector(selectUser);
+  const dispatch = useDispatch();
+
   // Switch page between login and register
 
   const [page, setPage] = useState("register");
@@ -105,9 +112,11 @@ const LoginRegister = () => {
       body: JSON.stringify(userLogin),
     });
     let result = await response.json();
-    console.log(result.message);
+    console.log(result.user);
 
-    if (result.message === "Wrong login info") {
+    if (result.message === "Successful login") {
+      dispatch(loginUser({ name: result.user.name, email: result.user.email }));
+    } else if (result.message === "Wrong login info") {
       alert("Wrong login info");
     }
   };
