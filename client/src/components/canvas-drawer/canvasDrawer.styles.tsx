@@ -26,11 +26,12 @@ export const StyledButton = styled(Button)(() => ({
 export const Puller = styled(Box)(() => ({
   width: 30,
   height: 6,
-  backgroundColor: "#45260a",
+  backgroundColor: "#e67e22",
   borderRadius: 3,
   position: "absolute",
   top: 8,
   left: "calc(50% - 15px)",
+  cursor: "pointer",
 }));
 
 export const StyledSkeleton = styled(Skeleton)(() => ({
