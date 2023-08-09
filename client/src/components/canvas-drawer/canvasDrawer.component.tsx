@@ -18,10 +18,10 @@ const CanvasDrawer = (props: Props) => {
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
-    if (topPosition === 30) {
-      setTopPosition(0);
-    } else if (topPosition === 0) {
+    if (open) {
       setTopPosition(30);
+    } else {
+      setTopPosition(0);
     }
   };
 
