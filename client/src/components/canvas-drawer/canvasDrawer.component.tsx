@@ -1,29 +1,37 @@
 import { useState } from "react";
 import { Global } from "@emotion/react";
 
-import {
-  Box,
-  Button,
-  CssBaseline,
-  Skeleton,
-  SwipeableDrawer,
-  Typography,
-} from "@mui/material";
+import Canvas from "../canvas/canvas.component";
 
-import { Puller, Root, StyledBox, StyledButton } from "./canvasDrawer.styles";
+import { Box, CssBaseline, SwipeableDrawer, Typography } from "@mui/material";
+
+import {
+  ChooseElement,
+  Puller,
+  Root,
+  StyledBox,
+  StyledButton,
+  StyledSkeleton,
+} from "./canvasDrawer.styles";
 
 interface Props {
   window?: () => Window;
 }
 
-const drawerBleeding = 56;
+const drawerBleeding = 30;
 
 const CanvasDrawer = (props: Props) => {
   const { window } = props;
   const [open, setOpen] = useState(false);
+  const [topPosition, setTopPosition] = useState(0);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
+    if (topPosition === 30) {
+      setTopPosition(0);
+    } else if (topPosition === 0) {
+      setTopPosition(30);
+    }
   };
 
   // This is used only for the example
@@ -36,7 +44,7 @@ const CanvasDrawer = (props: Props) => {
       <Global
         styles={{
           ".MuiDrawer-root > .MuiPaper-root": {
-            height: `calc(50% - ${drawerBleeding}px)`,
+            height: `calc(50%)`,
             overflow: "visible",
           },
         }}
@@ -50,7 +58,7 @@ const CanvasDrawer = (props: Props) => {
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
-        swipeAreaWidth={drawerBleeding}
+        swipeAreaWidth={0}
         disableSwipeToOpen={false}
         ModalProps={{
           keepMounted: true,
@@ -59,7 +67,7 @@ const CanvasDrawer = (props: Props) => {
         <StyledBox
           sx={{
             position: "absolute",
-            top: -drawerBleeding,
+            top: -topPosition,
             borderTopLeftRadius: 8,
             borderTopRightRadius: 8,
             visibility: "visible",
@@ -68,19 +76,8 @@ const CanvasDrawer = (props: Props) => {
           }}
         >
           <Puller />
-          <Typography sx={{ p: 2, color: "text.secondary" }}>
-            51 results
-          </Typography>
-        </StyledBox>
-        <StyledBox
-          sx={{
-            px: 2,
-            pb: 2,
-            height: "100%",
-            overflow: "auto",
-          }}
-        >
-          <Skeleton variant="rectangular" height="100%" />
+
+          {open && <Canvas />}
         </StyledBox>
       </SwipeableDrawer>
     </Root>

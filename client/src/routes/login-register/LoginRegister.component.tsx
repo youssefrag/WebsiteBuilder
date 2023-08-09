@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { selectUser, loginUser } from "../../store/user/userSlice";
+import { loginUser } from "../../store/user/userSlice";
 
 import {
   LoginRegisterContainer,
