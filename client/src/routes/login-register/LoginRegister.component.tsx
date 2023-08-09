@@ -21,7 +21,6 @@ import { LoginData, RegisterData } from "./LoginRegister.types";
 
 const LoginRegister = () => {
   const currentUser = useSelector(selectUser);
-  console.log(currentUser);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
