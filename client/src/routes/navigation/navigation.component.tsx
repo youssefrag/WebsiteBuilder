@@ -61,7 +61,9 @@ const Navigation = () => {
                 <StyledLink onClick={() => navigate("login-register")}>
                   Login / Register
                 </StyledLink>
-                <StyledButton>Start Building</StyledButton>
+                <StyledButton onClick={() => navigate("playground")}>
+                  Start Building
+                </StyledButton>
               </LinkContainer>
             </StyledToolBar>
           </StyledAppBar>

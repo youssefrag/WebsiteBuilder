@@ -3,7 +3,8 @@ import { Box } from "@mui/material";
 
 export const CanvasContainer = styled(Box)(() => ({
   padding: "3rem",
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
+  display: "flex",
+  flexDirection: "column",
+  gap: "2rem",
   alignItems: "center",
 }));
