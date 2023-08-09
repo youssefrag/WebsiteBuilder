@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { Box, Button, Skeleton } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 export const Root = styled("div")(() => ({
   height: "100%",
@@ -8,7 +8,6 @@ export const Root = styled("div")(() => ({
 
 export const StyledBox = styled(Box)(() => ({
   backgroundColor: "#fdf2e9",
-  // paddingTop: "2rem",
   height: "100%",
 }));
 
@@ -32,17 +31,4 @@ export const Puller = styled(Box)(() => ({
   top: 8,
   left: "calc(50% - 15px)",
   cursor: "pointer",
-}));
-
-export const StyledSkeleton = styled(Skeleton)(() => ({
-  backgroundColor: "#fff",
-  borderRadius: "20px",
-  padding: "4rem",
-}));
-
-export const ChooseElement = styled(Box)(() => ({
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "center",
-  // marginTop: "1.5rem",
 }));

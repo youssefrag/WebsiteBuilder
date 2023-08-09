@@ -3,22 +3,13 @@ import { Global } from "@emotion/react";
 
 import Canvas from "../canvas/canvas.component";
 
-import { Box, CssBaseline, SwipeableDrawer, Typography } from "@mui/material";
+import { Box, CssBaseline, SwipeableDrawer } from "@mui/material";
 
-import {
-  ChooseElement,
-  Puller,
-  Root,
-  StyledBox,
-  StyledButton,
-  StyledSkeleton,
-} from "./canvasDrawer.styles";
+import { Puller, Root, StyledBox, StyledButton } from "./canvasDrawer.styles";
 
 interface Props {
   window?: () => Window;
 }
-
-const drawerBleeding = 30;
 
 const CanvasDrawer = (props: Props) => {
   const { window } = props;
