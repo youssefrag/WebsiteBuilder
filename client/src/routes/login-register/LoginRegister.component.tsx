@@ -20,7 +20,6 @@ import {
 import { LoginData, RegisterData } from "./LoginRegister.types";
 
 const LoginRegister = () => {
-  const currentUser = useSelector(selectUser);
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
