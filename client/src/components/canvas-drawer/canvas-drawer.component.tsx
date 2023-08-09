@@ -35,7 +35,8 @@ const CanvasDrawer = (props: Props) => {
       <Global
         styles={{
           ".MuiDrawer-root > .MuiPaper-root": {
-            height: `calc(50%)`,
+            // height: `calc(50%)`,
+            height: `calc(90%)`,
             overflow: "visible",
           },
         }}

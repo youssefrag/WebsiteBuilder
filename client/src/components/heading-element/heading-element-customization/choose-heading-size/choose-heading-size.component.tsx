@@ -6,7 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
 const ChooseHeadingSize = () => {
-  const [value, setValue] = useState("female");
+  const [value, setValue] = useState("small");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue((event.target as HTMLInputElement).value);

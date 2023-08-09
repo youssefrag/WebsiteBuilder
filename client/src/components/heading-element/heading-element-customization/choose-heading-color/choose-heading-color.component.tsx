@@ -1,5 +1,11 @@
+import { useState } from "react";
+
+import { HexColorPicker } from "react-colorful";
+
 const ChooseHeadingColor = () => {
-  return <div>ChooseHeadingColor</div>;
+  const [color, setColor] = useState("#fff");
+
+  return <HexColorPicker color={color} onChange={setColor} />;
 };
 
 export default ChooseHeadingColor;
