@@ -5,7 +5,7 @@ import Canvas from "../canvas/canvas.component";
 
 import { Box, CssBaseline, SwipeableDrawer } from "@mui/material";
 
-import { Puller, Root, StyledBox, StyledButton } from "./canvasDrawer.styles";
+import { Puller, Root, StyledBox, StyledButton } from "./canvas-drawer.styles";
 
 interface Props {
   window?: () => Window;

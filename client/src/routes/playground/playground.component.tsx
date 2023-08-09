@@ -1,4 +1,4 @@
-import CanvasDrawer from "../../components/canvas-drawer/canvasDrawer.component";
+import CanvasDrawer from "../../components/canvas-drawer/canvas-drawer.component";
 
 const Playground = () => {
   return <CanvasDrawer></CanvasDrawer>;

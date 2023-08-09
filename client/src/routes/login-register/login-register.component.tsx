@@ -15,9 +15,9 @@ import {
   SwitchContainer,
   SwitchText,
   TextfieldContainer,
-} from "./LoginRegister.styles";
+} from "./login-register.styles";
 
-import { LoginData, RegisterData } from "./LoginRegister.types";
+import { LoginData, RegisterData } from "./login-register.types";
 
 const LoginRegister = () => {
   const dispatch = useDispatch();

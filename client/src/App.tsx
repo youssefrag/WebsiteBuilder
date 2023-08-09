@@ -6,7 +6,7 @@ import { selectUser } from "./store/user/userSlice";
 
 import Navigation from "./routes/navigation/navigation.component";
 import Home from "./routes/home/home.component";
-import LoginRegister from "./routes/login-register/LoginRegister.component";
+import LoginRegister from "./routes/login-register/login-register.component";
 import Websites from "./routes/websites/websites.component";
 import Playground from "./routes/playground/playground.component";
 
