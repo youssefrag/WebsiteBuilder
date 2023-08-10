@@ -15,10 +15,13 @@ export const playgroundSlice = createSlice({
     addComponent: (state, action: PayloadAction<Component>) => {
       state.playground = [...state.playground, action.payload];
     },
+    resetPlayground: (state) => {
+      state.playground = [];
+    },
   },
 });
 
-export const { addComponent } = playgroundSlice.actions;
+export const { addComponent, resetPlayground } = playgroundSlice.actions;
 
 type RootState = ReturnType<typeof store.getState>;
 
