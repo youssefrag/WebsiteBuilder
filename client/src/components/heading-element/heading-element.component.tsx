@@ -19,7 +19,12 @@ const HeadingElement = () => {
 
   useEffect(() => {
     dispatch(
-      editCanvas({ content: "", fontSize: "small", fontType: "", color: "" })
+      editCanvas({
+        content: "",
+        fontSize: "small",
+        fontType: "Rubik",
+        color: "#e67e22",
+      })
     );
   }, []);
 
