@@ -15,9 +15,6 @@ export const canvasSlice = createSlice({
     editCanvas: (state, action: PayloadAction<Heading>) => {
       state.canvas = action.payload;
     },
-    // loginUser: (state, action: PayloadAction<User>) => {
-    //   state.user = action.payload;
-    // },
   },
 });
 
