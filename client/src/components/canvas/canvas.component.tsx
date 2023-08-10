@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { editCanvas, selectCanvas } from "../../store/canvas/canvasSlice";
+import { selectCanvas } from "../../store/canvas/canvasSlice";
 
 import {
   addComponent,
@@ -13,12 +13,12 @@ import ElementPicker from "../element-picker/element-picker.component";
 import HeadingElement from "../heading-element/heading-element.component";
 
 import { CanvasContainer, StyledButton } from "./canvas.styles";
+import Playground from "../../routes/playground/playground.component";
 
 const Canvas = () => {
   const [element, setElement] = useState<string>("heading");
 
   const canvas = useSelector(selectCanvas);
-  const playground = useSelector(selectPlayground);
   const dispatch = useDispatch();
 
   const handlePickElement = (
@@ -35,7 +35,6 @@ const Canvas = () => {
           alert("Content cannot be empty!");
           return;
         }
-        console.log(canvas);
         dispatch(addComponent({ details: canvas, type: "heading" }));
       }
     }
