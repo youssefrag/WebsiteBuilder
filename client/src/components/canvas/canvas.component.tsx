@@ -4,16 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { selectCanvas } from "../../store/canvas/canvasSlice";
 
-import {
-  addComponent,
-  selectPlayground,
-} from "../../store/playground/playgroundSlice";
+import { addComponent } from "../../store/playground/playgroundSlice";
 
 import ElementPicker from "../element-picker/element-picker.component";
 import HeadingElement from "../heading-element/heading-element.component";
 
 import { CanvasContainer, StyledButton } from "./canvas.styles";
-import Playground from "../../routes/playground/playground.component";
 
 const Canvas = () => {
   const [element, setElement] = useState<string>("heading");
@@ -36,6 +32,7 @@ const Canvas = () => {
           return;
         }
         dispatch(addComponent({ details: canvas, type: "heading" }));
+        console.log(canvas);
       }
     }
   };
