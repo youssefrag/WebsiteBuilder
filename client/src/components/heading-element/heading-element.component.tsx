@@ -5,8 +5,9 @@ import {
   StyledTextfield,
 } from "./heading-element.styles";
 
-import ChooseHeadingSize from "./heading-element-customization/choose-heading-size/choose-heading-size.component";
 import ChooseHeadingColor from "./heading-element-customization/choose-heading-color/choose-heading-color.component";
+import ChooseHeadingFont from "./heading-element-customization/choose-heading-font/choose-heading-font.component";
+import ChooseHeadingSize from "./heading-element-customization/choose-heading-size/choose-heading-size.component";
 
 const HeadingElement = () => {
   const [headingContent, setHeadingContent] = useState("");
@@ -26,6 +27,7 @@ const HeadingElement = () => {
         placeholder="Heading Content"
       />
       <ChooseHeadingSize />
+      <ChooseHeadingFont />
       <ChooseHeadingColor />
     </HeadingElementContainer>
   );

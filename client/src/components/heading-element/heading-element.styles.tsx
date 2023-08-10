@@ -4,7 +4,7 @@ import { Box, TextField } from "@mui/material";
 
 export const HeadingElementContainer = styled(Box)(() => ({
   display: "grid",
-  gridTemplateColumns: "2fr 1fr 1fr",
+  gridTemplateColumns: "2fr 1fr 1fr 1fr",
   alignItems: "center",
   columnGap: "3rem",
 }));
