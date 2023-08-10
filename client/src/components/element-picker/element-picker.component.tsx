@@ -40,11 +40,11 @@ const ElementPicker = ({
             <StyledElementTitle>Text</StyledElementTitle>
           )}
         </StyledToggleButton>
-        <StyledToggleButton value="list" aria-label="right aligned">
-          {element === "list" ? (
-            <SelectedElementTitle>List</SelectedElementTitle>
+        <StyledToggleButton value="image" aria-label="right aligned">
+          {element === "image" ? (
+            <SelectedElementTitle>image</SelectedElementTitle>
           ) : (
-            <StyledElementTitle>List</StyledElementTitle>
+            <StyledElementTitle>image</StyledElementTitle>
           )}
         </StyledToggleButton>
       </ToggleButtonGroup>

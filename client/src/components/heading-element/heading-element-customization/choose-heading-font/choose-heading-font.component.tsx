@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { editCanvas, selectCanvas } from "../../../../store/canvas/canvasSlice";
 
 import { Box, InputLabel, MenuItem, Select } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
@@ -6,10 +8,18 @@ import { SelectChangeEvent } from "@mui/material/Select";
 import { StyledFormControl } from "./choose-heading-font.styles";
 
 const ChooseHeadingFont = () => {
-  const [font, setFont] = useState("Rubik");
+  const canvas = useSelector(selectCanvas);
+  const dispatch = useDispatch();
 
   const handleChange = (event: SelectChangeEvent) => {
-    setFont(event.target.value as string);
+    if (canvas !== null) {
+      dispatch(
+        editCanvas({
+          ...canvas,
+          fontType: event.target.value as string,
+        })
+      );
+    }
   };
 
   return (
@@ -19,7 +29,7 @@ const ChooseHeadingFont = () => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={font}
+          value={canvas?.fontType}
           label="Age"
           onChange={handleChange}
         >

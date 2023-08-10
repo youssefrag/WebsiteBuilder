@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { editCanvas, selectCanvas } from "../../../../store/canvas/canvasSlice";
+
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -6,10 +9,18 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
 const ChooseHeadingSize = () => {
-  const [value, setValue] = useState("small");
+  const canvas = useSelector(selectCanvas);
+  const dispatch = useDispatch();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue((event.target as HTMLInputElement).value);
+    if (canvas !== null) {
+      dispatch(
+        editCanvas({
+          ...canvas,
+          fontSize: (event.target as HTMLInputElement).value,
+        })
+      );
+    }
   };
 
   return (
@@ -18,7 +29,7 @@ const ChooseHeadingSize = () => {
       <RadioGroup
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
-        value={value}
+        value={canvas?.fontSize}
         onChange={handleChange}
       >
         <FormControlLabel value="small" control={<Radio />} label="Small" />

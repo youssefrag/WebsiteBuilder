@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -19,23 +19,24 @@ const HeadingElement = () => {
 
   useEffect(() => {
     dispatch(
-      editCanvas({ content: "", fontSize: "", fontType: "", color: "" })
+      editCanvas({ content: "", fontSize: "small", fontType: "", color: "" })
     );
   }, []);
-
-  const [headingContent, setHeadingContent] = useState("");
 
   const handleContentChange = (e: React.FormEvent) => {
     const element = e.currentTarget as HTMLInputElement;
     const value = element.value;
-    setHeadingContent(value);
+    // setHeadingContent(value);
+    if (canvas !== null) {
+      dispatch(editCanvas({ ...canvas, content: value }));
+    }
   };
 
   return (
     <HeadingElementContainer>
       <StyledTextfield
         required
-        value={headingContent}
+        value={canvas?.content}
         onChange={handleContentChange}
         placeholder="Heading Content"
       />
