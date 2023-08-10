@@ -1,7 +1,9 @@
 import { useState } from "react";
 
-import { Box, InputLabel, MenuItem, FormControl, Select } from "@mui/material";
+import { Box, InputLabel, MenuItem, Select } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
+
+import { StyledFormControl } from "./choose-heading-font.styles";
 
 const ChooseHeadingFont = () => {
   const [font, setFont] = useState("Rubik");
@@ -12,7 +14,7 @@ const ChooseHeadingFont = () => {
 
   return (
     <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
+      <StyledFormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Font</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -26,7 +28,7 @@ const ChooseHeadingFont = () => {
           <MenuItem value={"Helvetica"}>Helvetica</MenuItem>
           <MenuItem value={"Futura"}>Futura</MenuItem>
         </Select>
-      </FormControl>
+      </StyledFormControl>
     </Box>
   );
 };
