@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+
+import { editCanvas, selectCanvas } from "../../store/canvas/canvasSlice";
 
 import {
   HeadingElementContainer,
@@ -10,6 +14,15 @@ import ChooseHeadingFont from "./heading-element-customization/choose-heading-fo
 import ChooseHeadingSize from "./heading-element-customization/choose-heading-size/choose-heading-size.component";
 
 const HeadingElement = () => {
+  const canvas = useSelector(selectCanvas);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      editCanvas({ content: "", fontSize: "", fontType: "", color: "" })
+    );
+  }, []);
+
   const [headingContent, setHeadingContent] = useState("");
 
   const handleContentChange = (e: React.FormEvent) => {
