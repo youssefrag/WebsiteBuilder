@@ -13,7 +13,7 @@ const ChooseHeadingSize = () => {
   };
 
   return (
-    <FormControl>
+    <FormControl sx={{ "& .MuiFormControl-root": { width: "40%" } }}>
       <FormLabel id="demo-controlled-radio-buttons-group">Font Size</FormLabel>
       <RadioGroup
         aria-labelledby="demo-controlled-radio-buttons-group"

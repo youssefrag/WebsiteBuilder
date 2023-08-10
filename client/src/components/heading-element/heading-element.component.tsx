@@ -23,6 +23,7 @@ const HeadingElement = () => {
         required
         value={headingContent}
         onChange={handleContentChange}
+        placeholder="Heading Content"
       />
       <ChooseHeadingSize />
       <ChooseHeadingColor />
