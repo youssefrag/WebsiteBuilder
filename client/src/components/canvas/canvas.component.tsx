@@ -16,7 +16,11 @@ import { CanvasContainer, StyledButton } from "./canvas.styles";
 
 import { CanvasPropsType } from "./canvas.types";
 
-import { Heading, Text } from "../../store/canvas/canvas.types";
+import {
+  Heading,
+  Text,
+  CanvasSliceState,
+} from "../../store/canvas/canvas.types";
 
 const Canvas = (props: CanvasPropsType) => {
   const [element, setElement] = useState<string>("heading");

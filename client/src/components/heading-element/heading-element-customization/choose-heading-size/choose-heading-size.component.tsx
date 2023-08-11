@@ -8,9 +8,15 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
+import { Heading, Text } from "../../../../store/canvas/canvas.types";
+
 const ChooseHeadingSize = () => {
   const canvas = useSelector(selectCanvas);
   const dispatch = useDispatch();
+
+  function isHeading(canvas: Heading | Text | null): canvas is Heading {
+    return (canvas as Heading).fontSize !== undefined;
+  }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (canvas !== null) {

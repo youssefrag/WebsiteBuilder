@@ -14,5 +14,4 @@ export interface Text {
 
 export interface CanvasSliceState {
   canvas: Heading | Text | null;
-  // canvas: Heading | null;
 }

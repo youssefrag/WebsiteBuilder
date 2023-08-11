@@ -12,7 +12,6 @@ export const canvasSlice = createSlice({
   name: "canvas",
   initialState,
   reducers: {
-    // editCanvas: (state, action: PayloadAction<Heading>) => {
     editCanvas: (state, action: PayloadAction<Heading | Text>) => {
       state.canvas = action.payload;
     },
