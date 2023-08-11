@@ -69,7 +69,7 @@ const CanvasDrawer = (props: Props) => {
         >
           <Puller onClick={toggleDrawer(!open)} />
 
-          {open && <Canvas />}
+          {open && <Canvas closeDrawer={toggleDrawer(false)} />}
         </StyledBox>
       </SwipeableDrawer>
     </Root>

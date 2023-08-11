@@ -13,7 +13,9 @@ import HeadingElement from "../heading-element/heading-element.component";
 
 import { CanvasContainer, StyledButton } from "./canvas.styles";
 
-const Canvas = () => {
+import { CanvasPropsType } from "./canvas.types";
+
+const Canvas = (props: CanvasPropsType) => {
   const [element, setElement] = useState<string>("heading");
 
   const canvas = useSelector(selectCanvas);
@@ -40,6 +42,7 @@ const Canvas = () => {
             componentId: uuidv4(),
           })
         );
+        props.closeDrawer();
       }
     }
   };
