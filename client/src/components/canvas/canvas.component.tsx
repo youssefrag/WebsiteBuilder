@@ -16,7 +16,7 @@ import { CanvasContainer, StyledButton } from "./canvas.styles";
 
 import { CanvasPropsType } from "./canvas.types";
 
-import { Heading } from "../../store/canvas/canvas.types";
+import { Heading, Text } from "../../store/canvas/canvas.types";
 
 const Canvas = (props: CanvasPropsType) => {
   const [element, setElement] = useState<string>("heading");
@@ -31,9 +31,14 @@ const Canvas = (props: CanvasPropsType) => {
     setElement(pickedElement);
   };
 
+  function isHeading(canvas: Heading | Text | null): canvas is Heading {
+    return (canvas as Heading).fontSize !== undefined;
+  }
+
   const handleAddToPlayground = () => {
     if (canvas !== null) {
-      if (element === "heading") {
+      console.log(typeof canvas);
+      if (element === "heading" && isHeading(canvas)) {
         if (!canvas.content) {
           alert("Content cannot be empty!");
           return;

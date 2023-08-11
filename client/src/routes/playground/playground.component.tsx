@@ -38,6 +38,7 @@ const Playground = () => {
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center"
+        key={component.componentId}
       >
         {createHtmlElements(component)}
         <StyledDeleteIcon

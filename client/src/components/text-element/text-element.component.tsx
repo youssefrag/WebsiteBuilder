@@ -15,14 +15,14 @@ const TextElement = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(
-      editCanvas({
-        content: "",
-        lineHeight: "1.2",
-        fontType: "Rubik",
-        color: "#e67e22",
-      })
-    );
+    // dispatch(
+    //   editCanvas({
+    //     content: "",
+    //     lineHeight: "1.2",
+    //     fontType: "Rubik",
+    //     color: "#e67e22",
+    //   })
+    // );
   }, []);
 
   return (
