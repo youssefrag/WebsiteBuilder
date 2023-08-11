@@ -31,7 +31,7 @@ const Playground = () => {
 
   return (
     <>
-      {/* {renderComponents} */}
+      {renderComponents}
       <CanvasDrawer></CanvasDrawer>
       <SaveDeleteContainer>
         <SaveButton>Save website</SaveButton>
