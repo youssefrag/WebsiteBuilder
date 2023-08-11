@@ -10,6 +10,7 @@ import { addComponent } from "../../store/playground/playgroundSlice";
 
 import ElementPicker from "../element-picker/element-picker.component";
 import HeadingElement from "../heading-element/heading-element.component";
+import TextElement from "../text-element/text-element.component";
 
 import { CanvasContainer, StyledButton } from "./canvas.styles";
 
@@ -54,6 +55,7 @@ const Canvas = (props: CanvasPropsType) => {
         handlePickElement={handlePickElement}
       ></ElementPicker>
       {element === "heading" && <HeadingElement />}
+      {element === "text" && <TextElement />}
       <StyledButton onClick={handleAddToPlayground}>
         Add to website
       </StyledButton>
