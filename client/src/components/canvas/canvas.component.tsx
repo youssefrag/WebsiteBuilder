@@ -16,6 +16,8 @@ import { CanvasContainer, StyledButton } from "./canvas.styles";
 
 import { CanvasPropsType } from "./canvas.types";
 
+import { Heading } from "../../store/canvas/canvas.types";
+
 const Canvas = (props: CanvasPropsType) => {
   const [element, setElement] = useState<string>("heading");
 
@@ -56,9 +58,11 @@ const Canvas = (props: CanvasPropsType) => {
       ></ElementPicker>
       {element === "heading" && <HeadingElement />}
       {element === "text" && <TextElement />}
-      <StyledButton onClick={handleAddToPlayground}>
-        Add to website
-      </StyledButton>
+      {element && (
+        <StyledButton onClick={handleAddToPlayground}>
+          Add to website
+        </StyledButton>
+      )}
     </CanvasContainer>
   );
 };

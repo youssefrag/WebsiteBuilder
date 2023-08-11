@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { Heading, CanvasSliceState } from "./canvas.types";
+import { Heading, Text, CanvasSliceState } from "./canvas.types";
 
 import { store } from "../store";
 
@@ -12,7 +12,7 @@ export const canvasSlice = createSlice({
   name: "canvas",
   initialState,
   reducers: {
-    editCanvas: (state, action: PayloadAction<Heading>) => {
+    editCanvas: (state, action: PayloadAction<Heading | Text>) => {
       state.canvas = action.payload;
     },
   },

@@ -5,6 +5,14 @@ export interface Heading {
   color: string;
 }
 
+export interface Text {
+  content: string;
+  lineHeight: string;
+  fontType: string;
+  color: string;
+}
+
 export interface CanvasSliceState {
-  canvas: Heading | null;
+  canvas: Heading | Text | null;
+  // canvas: Heading | null;
 }
