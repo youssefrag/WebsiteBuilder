@@ -5,6 +5,7 @@ import { createHtmlElements } from "../../utils/createElements";
 import {
   resetPlayground,
   selectPlayground,
+  deleteComponent,
 } from "../../store/playground/playgroundSlice";
 
 import {
@@ -13,6 +14,8 @@ import {
   DeleteButton,
   PlaygroundContainer,
   ComponentsContainer,
+  SingleComponentContainer,
+  StyledDeleteIcon,
 } from "./playground.styles";
 
 import CanvasDrawer from "../../components/canvas-drawer/canvas-drawer.component";
@@ -25,8 +28,23 @@ const Playground = () => {
     dispatch(resetPlayground());
   };
 
+  const handleDeleteComponent = (componentId: string) => {
+    dispatch(deleteComponent(componentId));
+  };
+
   const renderComponents = playground.map((component) => {
-    return createHtmlElements(component);
+    return (
+      <SingleComponentContainer
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        {createHtmlElements(component)}
+        <StyledDeleteIcon
+          onClick={() => handleDeleteComponent(component.componentId)}
+        />
+      </SingleComponentContainer>
+    );
   });
 
   return (

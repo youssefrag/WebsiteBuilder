@@ -2,18 +2,26 @@ import { createElement } from "react";
 import { Component } from "../store/playground/playground.types";
 
 export const createHtmlElements = (component: Component) => {
-  const {
-    details: { content, fontSize, fontType, color },
-    type,
-  } = component;
+  if (component.type === "heading") {
+    const {
+      details: { content, fontSize, fontType, color },
+      type,
+    } = component;
 
-  console.log(fontSize);
+    let renderedSize = "2rem";
 
-  const style = {
-    fontSize,
-    fontFamily: fontType,
-    color,
-  };
+    if (fontSize === "medium") {
+      renderedSize = "3rem";
+    } else if (fontSize === "large") {
+      renderedSize = "4.5rem";
+    }
 
-  return createElement(type, { style }, content);
+    const style = {
+      fontSize: renderedSize,
+      fontFamily: fontType,
+      color,
+    };
+
+    return createElement(type, { style }, content);
+  }
 };

@@ -1,5 +1,7 @@
 import { styled } from "@mui/material/styles";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Stack } from "@mui/material";
+
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export const PlaygroundContainer = styled(Box)(() => ({
   padding: "4rem",
@@ -9,6 +11,12 @@ export const ComponentsContainer = styled(Box)(() => ({
   display: "flex",
   flexDirection: "column",
   gap: "3rem",
+}));
+
+export const SingleComponentContainer = styled(Stack)(() => ({}));
+
+export const StyledDeleteIcon = styled(DeleteIcon)(() => ({
+  cursor: "pointer",
 }));
 
 export const DeleteButton = styled(Button)(() => ({
