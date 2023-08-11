@@ -1,6 +1,16 @@
 import { styled } from "@mui/material/styles";
 import { Box, Button } from "@mui/material";
 
+export const PlaygroundContainer = styled(Box)(() => ({
+  padding: "4rem",
+}));
+
+export const ComponentsContainer = styled(Box)(() => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: "3rem",
+}));
+
 export const DeleteButton = styled(Button)(() => ({
   fontFamily: "Rubik",
   backgroundColor: "#fff",

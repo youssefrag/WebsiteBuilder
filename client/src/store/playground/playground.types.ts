@@ -3,6 +3,7 @@ import { Heading } from "../canvas/canvas.types";
 export interface Component {
   type: string;
   details: Heading;
+  componentId: string;
 }
 
 export interface PlaygroundSliceState {

@@ -11,6 +11,8 @@ import {
   SaveDeleteContainer,
   SaveButton,
   DeleteButton,
+  PlaygroundContainer,
+  ComponentsContainer,
 } from "./playground.styles";
 
 import CanvasDrawer from "../../components/canvas-drawer/canvas-drawer.component";
@@ -27,11 +29,9 @@ const Playground = () => {
     return createHtmlElements(component);
   });
 
-  console.log(renderComponents);
-
   return (
-    <>
-      {renderComponents}
+    <PlaygroundContainer>
+      <ComponentsContainer>{renderComponents}</ComponentsContainer>
       <CanvasDrawer></CanvasDrawer>
       <SaveDeleteContainer>
         <SaveButton>Save website</SaveButton>
@@ -39,7 +39,7 @@ const Playground = () => {
           Delete website
         </DeleteButton>
       </SaveDeleteContainer>
-    </>
+    </PlaygroundContainer>
   );
 };
 

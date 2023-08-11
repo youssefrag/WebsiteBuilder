@@ -31,7 +31,6 @@ const HeadingElement = () => {
   const handleContentChange = (e: React.FormEvent) => {
     const element = e.currentTarget as HTMLInputElement;
     const value = element.value;
-    // setHeadingContent(value);
     if (canvas !== null) {
       dispatch(editCanvas({ ...canvas, content: value }));
     }

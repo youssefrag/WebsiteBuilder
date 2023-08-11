@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
+import { v4 as uuidv4 } from "uuid";
+
 import { selectCanvas } from "../../store/canvas/canvasSlice";
 
 import { addComponent } from "../../store/playground/playgroundSlice";
@@ -31,8 +33,13 @@ const Canvas = () => {
           alert("Content cannot be empty!");
           return;
         }
-        dispatch(addComponent({ details: canvas, type: "heading" }));
-        console.log(canvas);
+        dispatch(
+          addComponent({
+            details: canvas,
+            type: "heading",
+            componentId: uuidv4(),
+          })
+        );
       }
     }
   };
