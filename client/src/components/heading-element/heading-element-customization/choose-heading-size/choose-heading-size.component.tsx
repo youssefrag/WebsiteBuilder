@@ -18,6 +18,12 @@ const ChooseHeadingSize = () => {
     return (canvas as Heading).fontSize !== undefined;
   }
 
+  const typeCheckedValue = () => {
+    if (isHeading(canvas)) {
+      return canvas.fontSize;
+    }
+  };
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (canvas !== null) {
       dispatch(
@@ -35,7 +41,7 @@ const ChooseHeadingSize = () => {
       <RadioGroup
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
-        value={canvas?.fontSize}
+        value={typeCheckedValue()}
         onChange={handleChange}
       >
         <FormControlLabel value="small" control={<Radio />} label="Small" />
