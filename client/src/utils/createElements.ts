@@ -19,6 +19,7 @@ export const createHtmlElements = (component: Component) => {
     const style = {
       fontSize: renderedSize,
       fontFamily: fontType,
+      fontWeight: "500",
       color,
     };
 
