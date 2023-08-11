@@ -3,24 +3,24 @@ import { Box, Button } from "@mui/material";
 
 export const DeleteButton = styled(Button)(() => ({
   fontFamily: "Rubik",
-  color: "#fff",
-  backgroundColor: "#f03e3e",
+  backgroundColor: "#fff",
+  color: "#f03e3e",
   padding: "0.4rem 0.8rem",
   borderRadius: "9px",
   "&:hover": {
-    backgroundColor: "#ffff",
-    color: "#f03e3e",
+    color: "#ffff",
+    backgroundColor: "#f03e3e",
   },
 }));
 export const SaveButton = styled(Button)(() => ({
   fontFamily: "Rubik",
-  color: "#fff",
-  backgroundColor: "#37b24d",
+  backgroundColor: "#ffff",
+  color: "#37b24d",
   padding: "0.4rem 0.8rem",
   borderRadius: "9px",
   "&:hover": {
-    backgroundColor: "#ffff",
-    color: "#37b24d",
+    color: "#fff",
+    backgroundColor: "#37b24d",
   },
 }));
 
