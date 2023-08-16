@@ -14,11 +14,17 @@ export const StyledBox = styled(Box)(() => ({
 export const StyledButton = styled(Button)(() => ({
   fontFamily: "Rubik",
   color: "#fff",
-  backgroundColor: "#e67e22",
-  padding: "0.4rem 0.8rem",
-  borderRadius: "9px",
+  backgroundColor: "#2e1907",
+  borderRadius: "50%",
+  width: "5rem",
+  height: "5rem",
+  position: "fixed",
+  right: 50,
+  bottom: 50,
+  fontSize: "4rem",
   "&:hover": {
-    backgroundColor: "#cf711f",
+    backgroundColor: "#fdf2e9",
+    color: "#2e1907",
   },
 }));
 

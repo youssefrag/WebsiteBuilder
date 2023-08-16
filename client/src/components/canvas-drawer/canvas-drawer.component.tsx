@@ -42,7 +42,7 @@ const CanvasDrawer = (props: Props) => {
         }}
       />
       <Box sx={{ textAlign: "center", pt: 1 }}>
-        <StyledButton onClick={toggleDrawer(true)}>open canvas</StyledButton>
+        <StyledButton onClick={toggleDrawer(true)}>+</StyledButton>
       </Box>
       <SwipeableDrawer
         container={container}
@@ -62,7 +62,7 @@ const CanvasDrawer = (props: Props) => {
             top: -topPosition,
             borderTopLeftRadius: 8,
             borderTopRightRadius: 8,
-            visibility: "visible",
+            // visibility: "visible",
             right: 0,
             left: 0,
           }}
