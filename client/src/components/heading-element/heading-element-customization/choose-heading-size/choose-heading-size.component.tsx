@@ -41,7 +41,7 @@ const ChooseHeadingSize = () => {
       <RadioGroup
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
-        value={typeCheckedValue()}
+        value={typeCheckedValue() || "s,all"}
         onChange={handleChange}
       >
         <FormControlLabel value="small" control={<Radio />} label="Small" />
