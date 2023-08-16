@@ -70,6 +70,7 @@ const Canvas = (props: CanvasPropsType) => {
             componentId: uuidv4(),
           })
         );
+        props.closeDrawer();
       }
     }
   };
