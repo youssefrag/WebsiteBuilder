@@ -39,9 +39,12 @@ const Canvas = (props: CanvasPropsType) => {
     return (canvas as Heading).fontSize !== undefined;
   }
 
+  function isText(canvas: Heading | Text | null): canvas is Text {
+    return (canvas as Text).lineHeight !== undefined;
+  }
+
   const handleAddToPlayground = () => {
     if (canvas !== null) {
-      console.log(canvas);
       if (element === "heading" && isHeading(canvas)) {
         if (!canvas.content) {
           alert("Content cannot be empty!");
@@ -55,8 +58,18 @@ const Canvas = (props: CanvasPropsType) => {
           })
         );
         props.closeDrawer();
-      } else if (element === "text") {
-        // console.log("add text");
+      } else if (element === "text" && isText(canvas)) {
+        if (!canvas.content) {
+          alert("Content cannot be empty!");
+          return;
+        }
+        dispatch(
+          addComponent({
+            details: canvas,
+            type: "text",
+            componentId: uuidv4(),
+          })
+        );
       }
     }
   };

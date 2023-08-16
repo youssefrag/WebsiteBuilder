@@ -1,8 +1,18 @@
 import { createElement } from "react";
 import { Component } from "../store/playground/playground.types";
 
+import { Heading, Text } from "../store/canvas/canvas.types";
+
+function isHeading(canvas: Heading | Text | null): canvas is Heading {
+  return (canvas as Heading).fontSize !== undefined;
+}
+
+function isText(canvas: Heading | Text | null): canvas is Text {
+  return (canvas as Text).lineHeight !== undefined;
+}
+
 export const createHtmlElements = (component: Component) => {
-  if (component.type === "heading") {
+  if (component.type === "heading" && isHeading(component.details)) {
     const {
       details: { content, fontSize, fontType, color },
     } = component;

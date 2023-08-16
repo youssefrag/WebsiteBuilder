@@ -1,8 +1,8 @@
-import { Heading } from "../canvas/canvas.types";
+import { Heading, Text } from "../canvas/canvas.types";
 
 export interface Component {
   type: string;
-  details: Heading;
+  details: Heading | Text;
   componentId: string;
 }
 
