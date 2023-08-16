@@ -17,6 +17,7 @@ export const SingleComponentContainer = styled(Stack)(() => ({}));
 
 export const StyledDeleteIcon = styled(DeleteIcon)(() => ({
   cursor: "pointer",
+  marginLeft: "5rem",
 }));
 
 export const DeleteButton = styled(Button)(() => ({

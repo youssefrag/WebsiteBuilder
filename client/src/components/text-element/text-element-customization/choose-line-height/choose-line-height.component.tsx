@@ -51,9 +51,9 @@ const ChooseLineHeight = () => {
         onChange={handleChange}
       >
         <FormControlLabel value="1.2" control={<Radio />} label="1.2" />
-        <FormControlLabel value="1.4" control={<Radio />} label="1.4" />
         <FormControlLabel value="1.6" control={<Radio />} label="1.6" />
-        <FormControlLabel value="1.8" control={<Radio />} label="1.8" />
+        <FormControlLabel value="2" control={<Radio />} label="2" />
+        <FormControlLabel value="2.4" control={<Radio />} label="2.4" />
       </RadioGroup>
     </FormControl>
   );

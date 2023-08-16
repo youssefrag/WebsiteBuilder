@@ -34,4 +34,21 @@ export const createHtmlElements = (component: Component) => {
 
     return createElement("h1", { style }, content);
   }
+
+  if (component.type === "text" && isText(component.details)) {
+    const {
+      details: { content, lineHeight, fontType, color },
+    } = component;
+
+    let renderedSize = "1rem";
+
+    const style = {
+      fontSize: renderedSize,
+      fontFamily: fontType,
+      lineHeight: lineHeight,
+      color,
+    };
+
+    return createElement("p", { style }, content);
+  }
 };
