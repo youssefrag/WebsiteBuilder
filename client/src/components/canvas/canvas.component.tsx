@@ -41,7 +41,7 @@ const Canvas = (props: CanvasPropsType) => {
 
   const handleAddToPlayground = () => {
     if (canvas !== null) {
-      console.log(typeof canvas);
+      console.log(canvas);
       if (element === "heading" && isHeading(canvas)) {
         if (!canvas.content) {
           alert("Content cannot be empty!");
@@ -55,6 +55,8 @@ const Canvas = (props: CanvasPropsType) => {
           })
         );
         props.closeDrawer();
+      } else if (element === "text") {
+        // console.log("add text");
       }
     }
   };

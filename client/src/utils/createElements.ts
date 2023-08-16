@@ -5,7 +5,6 @@ export const createHtmlElements = (component: Component) => {
   if (component.type === "heading") {
     const {
       details: { content, fontSize, fontType, color },
-      type,
     } = component;
 
     let renderedSize = "2rem";
@@ -23,6 +22,6 @@ export const createHtmlElements = (component: Component) => {
       color,
     };
 
-    return createElement(type, { style }, content);
+    return createElement("h1", { style }, content);
   }
 };

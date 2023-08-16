@@ -19,7 +19,6 @@ export const playgroundSlice = createSlice({
       state.playground = [];
     },
     deleteComponent: (state, action: PayloadAction<string>) => {
-      console.log(action.payload);
       state.playground = state.playground.filter(
         (component) => component.componentId !== action.payload
       );

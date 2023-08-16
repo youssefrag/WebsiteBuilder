@@ -15,19 +15,34 @@ const TextElement = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(
-    //   editCanvas({
-    //     content: "",
-    //     lineHeight: "1.2",
-    //     fontType: "Rubik",
-    //     color: "#e67e22",
-    //   })
-    // );
+    dispatch(
+      editCanvas({
+        content: "",
+        lineHeight: "1.2",
+        fontType: "Rubik",
+        color: "#e67e22",
+      })
+    );
   }, []);
+
+  const handleContentChange = (e: React.FormEvent) => {
+    const element = e.currentTarget as HTMLInputElement;
+    const value = element.value;
+    if (canvas !== null) {
+      dispatch(editCanvas({ ...canvas, content: value }));
+    }
+  };
 
   return (
     <TextElementContainer>
-      <StyledTextfield multiline rows={6} />
+      <StyledTextfield
+        multiline
+        rows={6}
+        required
+        value={canvas?.content}
+        onChange={handleContentChange}
+        placeholder="Text Content"
+      />
       <ChooseTextFont />
       <ChooseLineHeight />
       <ChooseTextColor />
