@@ -16,27 +16,21 @@ const s3 = new S3({
   region,
   accessKeyId,
   secretAccessKey,
-  //   signatureVersion: "3",
+  signatureVersion: "v4",
 });
 
 const generateUploadURL = async () => {
-  console.log("reached here");
   const rawBytes = await randomBytes(16);
-  console.log(rawBytes);
   const imageName = rawBytes.toString("hex");
-  console.log(imageName);
 
   const params = {
     Bucket: bucketName,
     Key: imageName,
-    // expires: 60
+    Expires: 60,
   };
-
-  console.log(params);
 
   const uploadURL = await s3.getSignedUrlPromise("putObject", params);
 
-  console.log(uploadURL);
   return uploadURL;
 };
 

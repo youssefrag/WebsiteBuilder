@@ -68,24 +68,6 @@ const Canvas = (props: CanvasPropsType) => {
           })
         );
         props.closeDrawer();
-      } else if (element === "image") {
-        // get secure url from server
-
-        // const { url } = await fetch("http://localhost:8000/s3Url").then((res) =>
-        //   res.json()
-        // );
-        // console.log(url);
-
-        let resonse = await fetch("http://localhost:8000/s3Url", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        const { url } = await resonse.json();
-
-        console.log(url);
       }
     }
   };
@@ -98,8 +80,8 @@ const Canvas = (props: CanvasPropsType) => {
       ></ElementPicker>
       {element === "heading" && <HeadingElement />}
       {element === "text" && <TextElement />}
-      {element === "image" && <ImageElement />}
-      {element && (
+      {element === "image" && <ImageElement closeDrawer={props.closeDrawer} />}
+      {element && element !== "image" && (
         <StyledButton onClick={handleAddToPlayground}>
           Add to website
         </StyledButton>
