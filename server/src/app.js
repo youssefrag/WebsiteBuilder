@@ -19,4 +19,13 @@ app.use("/users", usersRouter);
 //   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 // });
 
+// S3 image code
+
+// import s3 from "./utils/s3";
+
+// app.get("s3Url", async (req, res) => {
+//   const url = s3.generateUploadUrl();
+//   res.send({ url });
+// });
+
 module.exports = app;
