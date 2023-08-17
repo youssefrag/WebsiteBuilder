@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
 import { v4 as uuidv4 } from "uuid";
 
-import { selectCanvas } from "../../store/canvas/canvasSlice";
+import { selectCanvas, editCanvas } from "../../store/canvas/canvasSlice";
 
 import { addComponent } from "../../store/playground/playgroundSlice";
 
@@ -33,6 +33,12 @@ const Canvas = (props: CanvasPropsType) => {
   ) => {
     setElement(pickedElement);
   };
+
+  useEffect(() => {
+    if (element === "image") {
+      dispatch(editCanvas({ imageName: "", imageUrl: "", width: "50%" }));
+    }
+  }, [element]);
 
   const handleAddToPlayground = async () => {
     if (canvas !== null) {
