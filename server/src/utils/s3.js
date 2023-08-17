@@ -1,29 +1,43 @@
-// import aws from "aws-sdk";
-// import { randomBytes } from "crypto";
-// import { promisify } from "util";
+const S3 = require("aws-sdk/clients/s3.js");
+const crypto = require("crypto");
 
-// require("dotenv").config();
+const { promisify } = require("util");
 
-// const region = "us-east-1";
-// const bucketName = "websitebuilder-bucket";
-// const accessKeyId = process.env.AWS_ACCESS_KEY;
-// const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+const randomBytes = promisify(crypto.randomBytes);
 
-// const s3 = new aws.s3({
-//   region,
-//   accessKeyId,
-//   secretAccessKey,
-//   signatureVersion: "4",
-// });
+require("dotenv").config();
 
-// const generateUploadURL = async () => {
-//   const rawBytes = await randomBytes(16);
-//   const imageName = rawBytes.toString("hex");
+const region = "us-east-1";
+const bucketName = "websitebuilder-bucket";
+const accessKeyId = process.env.AWS_ACCESS_KEY;
+const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
 
-//   const params = { Bucket: bucketName, key: imageName, expires: 60 };
+const s3 = new S3({
+  region,
+  accessKeyId,
+  secretAccessKey,
+  //   signatureVersion: "3",
+});
 
-//   const uploadURL = await s3.getSignedUrlPromise("putObject", params);
-//   return uploadURL;
-// };
+const generateUploadURL = async () => {
+  console.log("reached here");
+  const rawBytes = await randomBytes(16);
+  console.log(rawBytes);
+  const imageName = rawBytes.toString("hex");
+  console.log(imageName);
 
-// module.exports = { generateUploadURL };
+  const params = {
+    Bucket: bucketName,
+    Key: imageName,
+    // expires: 60
+  };
+
+  console.log(params);
+
+  const uploadURL = await s3.getSignedUrlPromise("putObject", params);
+
+  console.log(uploadURL);
+  //   return uploadURL;
+};
+
+module.exports = { generateUploadURL };

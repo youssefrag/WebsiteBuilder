@@ -21,11 +21,12 @@ app.use("/users", usersRouter);
 
 // S3 image code
 
-// import s3 from "./utils/s3";
+const { generateUploadURL } = require("./utils/s3");
 
-// app.get("s3Url", async (req, res) => {
-//   const url = s3.generateUploadUrl();
-//   res.send({ url });
-// });
+app.get("/s3Url", async (req, res) => {
+  const url = await generateUploadURL();
+
+  res.send({ url });
+});
 
 module.exports = app;
