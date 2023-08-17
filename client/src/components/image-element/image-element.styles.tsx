@@ -1,19 +1,25 @@
 import { styled } from "@mui/material/styles";
 import { Box, Button } from "@mui/material";
 
-export const ImageElementContainer = styled(Box)(() => ({
-  padding: "3rem",
+export const RootContainer = styled(Box)(() => ({
+  paddingTop: "5rem",
   display: "flex",
   flexDirection: "column",
-  gap: "10rem",
+  gap: "6rem",
+}));
+
+export const ImageElementContainer = styled(Box)(() => ({
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
   alignItems: "center",
+  columnGap: "3rem",
 }));
 
 export const StyledButton = styled(Button)(() => ({
   color: "#fff",
   fontFamily: "Rubik",
   fontSize: "1.3rem",
-  width: "200%",
+  width: "100%",
   height: "3.2rem",
   backgroundColor: "#45260a",
   textTransform: "capitalize",

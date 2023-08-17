@@ -6,9 +6,15 @@ import { v4 as uuidv4 } from "uuid";
 
 import { editCanvas, selectCanvas } from "../../store/canvas/canvasSlice";
 
+import ImageElementWidth from "./image-element-width/image-element-width-component";
+
 import { addComponent } from "../../store/playground/playgroundSlice";
 
-import { ImageElementContainer, StyledButton } from "./image-element.styles";
+import {
+  ImageElementContainer,
+  StyledButton,
+  RootContainer,
+} from "./image-element.styles";
 
 import { ImageElementPropsType } from "./image-element.types";
 
@@ -67,6 +73,10 @@ const ImageElement = (props: ImageElementPropsType) => {
     const imageUrl = url.split("?")[0];
     const imageName = image.name;
 
+    if (canvas !== null && isImage(canvas)) {
+      dispatch(editCanvas({ imageUrl, imageName, width: "100%" }));
+    }
+
     // dispatch(
     //   addComponent({
     //     details: canvas,
@@ -79,12 +89,15 @@ const ImageElement = (props: ImageElementPropsType) => {
   };
 
   return (
-    <ImageElementContainer>
-      <input type="file" name="image" onChange={handleImageUpload} />
+    <RootContainer>
+      <ImageElementContainer>
+        <input type="file" name="image" onChange={handleImageUpload} />
+        <ImageElementWidth />
+      </ImageElementContainer>
       <StyledButton onClick={handleAddToPlayground}>
         Add to Website
       </StyledButton>
-    </ImageElementContainer>
+    </RootContainer>
   );
 };
 

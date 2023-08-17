@@ -8,8 +8,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
-import { Heading, Text } from "../../../../store/canvas/canvas.types";
-
 import { isHeading } from "../../../../utils/typeCheckers";
 
 const ChooseHeadingSize = () => {
