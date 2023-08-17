@@ -25,7 +25,7 @@ const { generateUploadURL } = require("./utils/s3");
 
 app.get("/s3Url", async (req, res) => {
   const url = await generateUploadURL();
-
+  console.log(url);
   res.send({ url });
 });
 

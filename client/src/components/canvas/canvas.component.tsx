@@ -70,25 +70,22 @@ const Canvas = (props: CanvasPropsType) => {
         props.closeDrawer();
       } else if (element === "image") {
         // get secure url from server
-        const { url } = await fetch("http://localhost:8000/s3Url");
+
+        // const { url } = await fetch("http://localhost:8000/s3Url").then((res) =>
+        //   res.json()
+        // );
+        // console.log(url);
+
+        let resonse = await fetch("http://localhost:8000/s3Url", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const { url } = await resonse.json();
+
         console.log(url);
-
-        // let resonse = await fetch("http://localhost:8000/s3Url", {
-        //   method: "GET",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        // });
-
-        // console.log(resonse.json());
-
-        // let response = await fetch("http://localhost:8000/users/login", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(userLogin),
-        // });
       }
     }
   };
