@@ -10,6 +10,8 @@ import ChooseTextColor from "./text-element-customization/choose-text-color/choo
 import ChooseLineHeight from "./text-element-customization/choose-line-height/choose-line-height.component";
 import ChooseTextFont from "./text-element-customization/choose-text-font/choose-text-font.component";
 
+import { isText } from "../../utils/typeCheckers";
+
 const TextElement = () => {
   const canvas = useSelector(selectCanvas);
   const dispatch = useDispatch();
@@ -28,8 +30,14 @@ const TextElement = () => {
   const handleContentChange = (e: React.FormEvent) => {
     const element = e.currentTarget as HTMLInputElement;
     const value = element.value;
-    if (canvas !== null) {
+    if (canvas !== null && isText(canvas)) {
       dispatch(editCanvas({ ...canvas, content: value }));
+    }
+  };
+
+  const typeCheckedValue = () => {
+    if (canvas !== null && isText(canvas)) {
+      return canvas.content;
     }
   };
 
@@ -39,7 +47,7 @@ const TextElement = () => {
         multiline
         rows={6}
         required
-        value={canvas?.content}
+        value={typeCheckedValue()}
         onChange={handleContentChange}
         placeholder="Text Content"
       />

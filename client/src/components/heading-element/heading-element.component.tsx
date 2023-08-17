@@ -13,6 +13,8 @@ import ChooseHeadingColor from "./heading-element-customization/choose-heading-c
 import ChooseHeadingFont from "./heading-element-customization/choose-heading-font/choose-heading-font.component";
 import ChooseHeadingSize from "./heading-element-customization/choose-heading-size/choose-heading-size.component";
 
+import { isHeading } from "../../utils/typeCheckers";
+
 const HeadingElement = () => {
   const canvas = useSelector(selectCanvas);
   const dispatch = useDispatch();
@@ -31,8 +33,14 @@ const HeadingElement = () => {
   const handleContentChange = (e: React.FormEvent) => {
     const element = e.currentTarget as HTMLInputElement;
     const value = element.value;
-    if (canvas !== null) {
+    if (canvas !== null && isHeading(canvas)) {
       dispatch(editCanvas({ ...canvas, content: value }));
+    }
+  };
+
+  const typeCheckedValue = () => {
+    if (canvas !== null && isHeading(canvas)) {
+      return canvas.content;
     }
   };
 
@@ -40,7 +48,7 @@ const HeadingElement = () => {
     <HeadingElementContainer>
       <StyledTextfield
         required
-        value={canvas?.content}
+        value={typeCheckedValue()}
         onChange={handleContentChange}
         placeholder="Heading Content"
       />

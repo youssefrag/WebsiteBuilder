@@ -1,19 +1,35 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+
+import { v4 as uuidv4 } from "uuid";
+
+import { editCanvas, selectCanvas } from "../../store/canvas/canvasSlice";
+
+import { addComponent } from "../../store/playground/playgroundSlice";
 
 import { ImageElementContainer, StyledButton } from "./image-element.styles";
 
 import { ImageElementPropsType } from "./image-element.types";
 
-type ImageFile = {
-  lastModified: number;
-  name: string;
-  size: number;
-  type: string;
-  webkitRelativePath: string;
-};
+import { isImage } from "../../utils/typeCheckers";
 
 const ImageElement = (props: ImageElementPropsType) => {
   const [image, setImage] = useState<any>(null);
+
+  const canvas = useSelector(selectCanvas);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (canvas !== null && isImage(canvas))
+      dispatch(
+        editCanvas({
+          imageName: "",
+          imageUrl: "",
+          width: "100%",
+        })
+      );
+  }, []);
 
   const handleImageUpload = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -50,8 +66,14 @@ const ImageElement = (props: ImageElementPropsType) => {
 
     const imageUrl = url.split("?")[0];
     const imageName = image.name;
-    console.log(imageUrl);
-    console.log(imageName);
+
+    // dispatch(
+    //   addComponent({
+    //     details: canvas,
+    //     type: "image",
+    //     componentId: uuidv4(),
+    //   })
+    // );
 
     props.closeDrawer();
   };

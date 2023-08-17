@@ -14,12 +14,14 @@ import { SelectChangeEvent } from "@mui/material/Select";
 
 import { Heading, Text } from "../../../../store/canvas/canvas.types";
 
+import { isText } from "../../../../utils/typeCheckers";
+
 const ChooseLineHeight = () => {
   const canvas = useSelector(selectCanvas);
   const dispatch = useDispatch();
 
   const handleChange = (event: SelectChangeEvent) => {
-    if (canvas !== null) {
+    if (canvas !== null && isText(canvas)) {
       dispatch(
         editCanvas({
           ...canvas,
@@ -28,10 +30,6 @@ const ChooseLineHeight = () => {
       );
     }
   };
-
-  function isText(canvas: Heading | Text | null): canvas is Text {
-    return (canvas as Text).lineHeight !== undefined;
-  }
 
   const typeCheckedValue = () => {
     if (isText(canvas)) {

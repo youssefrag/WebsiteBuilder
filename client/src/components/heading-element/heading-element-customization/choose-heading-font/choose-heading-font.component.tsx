@@ -7,18 +7,26 @@ import { SelectChangeEvent } from "@mui/material/Select";
 
 import { StyledFormControl } from "./choose-heading-font.styles";
 
+import { isHeading } from "../../../../utils/typeCheckers";
+
 const ChooseHeadingFont = () => {
   const canvas = useSelector(selectCanvas);
   const dispatch = useDispatch();
 
   const handleChange = (event: SelectChangeEvent) => {
-    if (canvas !== null) {
+    if (canvas !== null && isHeading(canvas)) {
       dispatch(
         editCanvas({
           ...canvas,
           fontType: event.target.value as string,
         })
       );
+    }
+  };
+
+  const typeCheckedValue = () => {
+    if (canvas !== null && isHeading(canvas)) {
+      return canvas.fontType;
     }
   };
 
@@ -29,7 +37,7 @@ const ChooseHeadingFont = () => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={canvas?.fontType}
+          value={typeCheckedValue()}
           label="Font"
           onChange={handleChange}
         >

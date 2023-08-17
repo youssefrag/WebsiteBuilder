@@ -17,7 +17,9 @@ import { CanvasContainer, StyledButton } from "./canvas.styles";
 
 import { CanvasPropsType } from "./canvas.types";
 
-import { Heading, Text } from "../../store/canvas/canvas.types";
+import { Heading, Text, Image } from "../../store/canvas/canvas.types";
+
+import { isHeading, isText } from "../../utils/typeCheckers";
 
 const Canvas = (props: CanvasPropsType) => {
   const [element, setElement] = useState<string>("heading");
@@ -31,14 +33,6 @@ const Canvas = (props: CanvasPropsType) => {
   ) => {
     setElement(pickedElement);
   };
-
-  function isHeading(canvas: Heading | Text | null): canvas is Heading {
-    return (canvas as Heading).fontSize !== undefined;
-  }
-
-  function isText(canvas: Heading | Text | null): canvas is Text {
-    return (canvas as Text).lineHeight !== undefined;
-  }
 
   const handleAddToPlayground = async () => {
     if (canvas !== null) {

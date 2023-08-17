@@ -7,18 +7,26 @@ import { SelectChangeEvent } from "@mui/material/Select";
 
 import { StyledFormControl } from "./choose-text-font.styles";
 
+import { isText } from "../../../../utils/typeCheckers";
+
 const ChooseTextFont = () => {
   const canvas = useSelector(selectCanvas);
   const dispatch = useDispatch();
 
   const handleChange = (event: SelectChangeEvent) => {
-    if (canvas !== null) {
+    if (canvas !== null && isText(canvas)) {
       dispatch(
         editCanvas({
           ...canvas,
           fontType: event.target.value as string,
         })
       );
+    }
+  };
+
+  const typeCheckedValue = () => {
+    if (canvas !== null && isText(canvas)) {
+      return canvas.fontType;
     }
   };
 
@@ -29,7 +37,7 @@ const ChooseTextFont = () => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={canvas?.fontType}
+          value={typeCheckedValue()}
           label="Age"
           onChange={handleChange}
         >

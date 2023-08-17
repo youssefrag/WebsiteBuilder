@@ -10,13 +10,11 @@ import FormLabel from "@mui/material/FormLabel";
 
 import { Heading, Text } from "../../../../store/canvas/canvas.types";
 
+import { isHeading } from "../../../../utils/typeCheckers";
+
 const ChooseHeadingSize = () => {
   const canvas = useSelector(selectCanvas);
   const dispatch = useDispatch();
-
-  function isHeading(canvas: Heading | Text | null): canvas is Heading {
-    return (canvas as Heading).fontSize !== undefined;
-  }
 
   const typeCheckedValue = () => {
     if (isHeading(canvas)) {
@@ -25,7 +23,7 @@ const ChooseHeadingSize = () => {
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (canvas !== null) {
+    if (canvas !== null && isHeading(canvas)) {
       dispatch(
         editCanvas({
           ...canvas,

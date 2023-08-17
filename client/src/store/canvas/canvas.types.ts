@@ -12,6 +12,12 @@ export interface Text {
   color: string;
 }
 
+export interface Image {
+  imageName: string;
+  imageUrl: string;
+  width: string;
+}
+
 export interface CanvasSliceState {
-  canvas: Heading | Text | null;
+  canvas: Heading | Text | Image | null;
 }

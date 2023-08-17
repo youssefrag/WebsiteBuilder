@@ -3,13 +3,7 @@ import { Component } from "../store/playground/playground.types";
 
 import { Heading, Text } from "../store/canvas/canvas.types";
 
-function isHeading(canvas: Heading | Text | null): canvas is Heading {
-  return (canvas as Heading).fontSize !== undefined;
-}
-
-function isText(canvas: Heading | Text | null): canvas is Text {
-  return (canvas as Text).lineHeight !== undefined;
-}
+import { isHeading, isText } from "./typeCheckers";
 
 export const createHtmlElements = (component: Component) => {
   if (component.type === "heading" && isHeading(component.details)) {
