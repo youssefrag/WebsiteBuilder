@@ -11,16 +11,13 @@ import { addComponent } from "../../store/playground/playgroundSlice";
 import ElementPicker from "../element-picker/element-picker.component";
 import HeadingElement from "../heading-element/heading-element.component";
 import TextElement from "../text-element/text-element.component";
+import ImageElement from "../image-element/image-element.component";
 
 import { CanvasContainer, StyledButton } from "./canvas.styles";
 
 import { CanvasPropsType } from "./canvas.types";
 
-import {
-  Heading,
-  Text,
-  CanvasSliceState,
-} from "../../store/canvas/canvas.types";
+import { Heading, Text } from "../../store/canvas/canvas.types";
 
 const Canvas = (props: CanvasPropsType) => {
   const [element, setElement] = useState<string>("heading");
@@ -83,6 +80,7 @@ const Canvas = (props: CanvasPropsType) => {
       ></ElementPicker>
       {element === "heading" && <HeadingElement />}
       {element === "text" && <TextElement />}
+      {element === "image" && <ImageElement />}
       {element && (
         <StyledButton onClick={handleAddToPlayground}>
           Add to website

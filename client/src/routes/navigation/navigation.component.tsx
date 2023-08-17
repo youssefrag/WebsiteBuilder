@@ -37,6 +37,9 @@ const Navigation = () => {
                 Website<strong style={{ color: "#e67e22" }}>B</strong>uilder
               </StyledTitle>
               <LinkContainer>
+                <StyledLink onClick={() => navigate("/playground")}>
+                  Playground
+                </StyledLink>
                 <StyledLink onClick={() => navigate("/websites")}>
                   {getFirstName(currentUser.name)}'s Websites
                 </StyledLink>
