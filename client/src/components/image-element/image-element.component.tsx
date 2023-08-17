@@ -74,7 +74,7 @@ const ImageElement = (props: ImageElementPropsType) => {
     const imageName = image.name;
 
     if (canvas !== null && isImage(canvas)) {
-      dispatch(editCanvas({ imageUrl, imageName, width: "100%" }));
+      dispatch(editCanvas({ ...canvas, imageName, imageUrl }));
     }
 
     // dispatch(
