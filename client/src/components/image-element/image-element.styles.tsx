@@ -10,20 +10,35 @@ export const RootContainer = styled(Box)(() => ({
 
 export const ImageElementContainer = styled(Box)(() => ({
   display: "grid",
-  gridTemplateColumns: "1fr 1fr",
+  gridTemplateColumns: "1fr 1fr 1fr",
   alignItems: "center",
   columnGap: "3rem",
 }));
 
-export const StyledButton = styled(Button)(() => ({
+export const UploadButton = styled(Button)(() => ({
   color: "#fff",
   fontFamily: "Rubik",
   fontSize: "1.3rem",
   width: "100%",
   height: "3.2rem",
+  backgroundColor: "#cf711f",
+  textTransform: "capitalize",
+  borderRadius: "9px",
+  "&:hover": {
+    backgroundColor: "#fff",
+    color: "#cf711f",
+  },
+}));
+export const StyledButton = styled(Button)(() => ({
+  color: "#fff",
+  fontFamily: "Rubik",
+  fontSize: "1.3rem",
+  width: "60%",
+  height: "3.2rem",
   backgroundColor: "#45260a",
   textTransform: "capitalize",
   borderRadius: "9px",
+  alignSelf: "center",
   "&:hover": {
     backgroundColor: "#fff",
     color: "#45260a",

@@ -17,8 +17,6 @@ import { CanvasContainer, StyledButton } from "./canvas.styles";
 
 import { CanvasPropsType } from "./canvas.types";
 
-import { Heading, Text, Image } from "../../store/canvas/canvas.types";
-
 import { isHeading, isText } from "../../utils/typeCheckers";
 
 const Canvas = (props: CanvasPropsType) => {

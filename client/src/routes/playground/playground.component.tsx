@@ -22,6 +22,7 @@ import CanvasDrawer from "../../components/canvas-drawer/canvas-drawer.component
 
 const Playground = () => {
   const playground = useSelector(selectPlayground);
+
   const dispatch = useDispatch();
 
   const handleDeleteWebsite = () => {

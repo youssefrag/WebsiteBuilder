@@ -14,6 +14,7 @@ import {
   ImageElementContainer,
   StyledButton,
   RootContainer,
+  UploadButton,
 } from "./image-element.styles";
 
 import { ImageElementPropsType } from "./image-element.types";
@@ -46,9 +47,7 @@ const ImageElement = (props: ImageElementPropsType) => {
     }
   };
 
-  const handleAddToPlayground = async () => {
-    // get secure url from server
-
+  const handleUploadToBucket = async () => {
     let resonse = await fetch("http://localhost:8000/s3Url", {
       method: "GET",
       headers: {
@@ -60,8 +59,6 @@ const ImageElement = (props: ImageElementPropsType) => {
 
     console.log(url);
 
-    // post the image directly to the s3 bucket
-
     await fetch(url, {
       method: "PUT",
       headers: {
@@ -71,11 +68,29 @@ const ImageElement = (props: ImageElementPropsType) => {
     });
 
     const imageUrl = url.split("?")[0];
+
+    if (!image) {
+      alert("Select image before upload");
+      return;
+    }
     const imageName = image.name;
 
     if (canvas !== null && isImage(canvas)) {
-      dispatch(editCanvas({ ...canvas, imageName, imageUrl }));
+      await dispatch(editCanvas({ ...canvas, imageName, imageUrl }));
 
+      console.log(canvas);
+    }
+  };
+
+  const handleAddToPlayground = async () => {
+    console.log(canvas);
+
+    if (canvas !== null && isImage(canvas) && canvas.imageUrl === "") {
+      alert("Upload photo before adding");
+
+      return;
+    }
+    if (canvas !== null && isImage(canvas)) {
       dispatch(
         addComponent({
           details: canvas,
@@ -93,6 +108,7 @@ const ImageElement = (props: ImageElementPropsType) => {
       <ImageElementContainer>
         <input type="file" name="image" onChange={handleImageUpload} />
         <ImageElementWidth />
+        <UploadButton onClick={handleUploadToBucket}>Upload Photo</UploadButton>
       </ImageElementContainer>
       <StyledButton onClick={handleAddToPlayground}>
         Add to Website
