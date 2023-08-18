@@ -48,7 +48,7 @@ const ImageElement = (props: ImageElementPropsType) => {
   };
 
   const handleUploadToBucket = async () => {
-    let resonse = await fetch("http://localhost:8000/s3Url", {
+    let resonse = await fetch("http://localhost:8000/images/s3Url", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
