@@ -20,13 +20,4 @@ app.use("/images", imagesRouter);
 //   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 // });
 
-// S3 image code
-
-// const { generateUploadURL } = require("./utils/s3");
-
-// app.get("/s3Url", async (req, res) => {
-//   const url = await generateUploadURL();
-//   res.send({ url });
-// });
-
 module.exports = app;
