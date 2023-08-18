@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { createHtmlElements } from "../../utils/createElements";
 
+import SaveModal from "../../components/save-modal/save-modal.component";
+
 import {
   resetPlayground,
   selectPlayground,
@@ -59,7 +61,7 @@ const Playground = () => {
       <ComponentsContainer>{renderComponents}</ComponentsContainer>
       <CanvasDrawer></CanvasDrawer>
       <SaveDeleteContainer>
-        <SaveButton>Save website</SaveButton>
+        <SaveModal />
         <PreviewButton onClick={handleOpenPreview}>
           Preview Website
         </PreviewButton>
