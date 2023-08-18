@@ -22,24 +22,36 @@ export const StyledDeleteIcon = styled(DeleteIcon)(() => ({
 
 export const DeleteButton = styled(Button)(() => ({
   fontFamily: "Rubik",
-  backgroundColor: "#fff",
-  color: "#f03e3e",
+  backgroundColor: "#f03e3e",
+  color: "#fff",
   padding: "0.4rem 0.8rem",
   borderRadius: "9px",
   "&:hover": {
-    color: "#ffff",
-    backgroundColor: "#f03e3e",
+    color: "#f03e3e",
+    backgroundColor: "#fff",
   },
 }));
-export const SaveButton = styled(Button)(() => ({
+export const PreviewButton = styled(Button)(() => ({
   fontFamily: "Rubik",
-  backgroundColor: "#ffff",
-  color: "#37b24d",
+  backgroundColor: "#1971c2",
+  color: "#fff",
   padding: "0.4rem 0.8rem",
   borderRadius: "9px",
   "&:hover": {
-    color: "#fff",
-    backgroundColor: "#37b24d",
+    color: "#1971c2",
+    backgroundColor: "#fff",
+  },
+}));
+
+export const SaveButton = styled(Button)(() => ({
+  fontFamily: "Rubik",
+  backgroundColor: "#37b24d",
+  color: "#fff",
+  padding: "0.4rem 0.8rem",
+  borderRadius: "9px",
+  "&:hover": {
+    color: "#37b24d",
+    backgroundColor: "#fff",
   },
 }));
 

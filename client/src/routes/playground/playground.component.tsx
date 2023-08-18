@@ -16,6 +16,7 @@ import {
   ComponentsContainer,
   SingleComponentContainer,
   StyledDeleteIcon,
+  PreviewButton,
 } from "./playground.styles";
 
 import CanvasDrawer from "../../components/canvas-drawer/canvas-drawer.component";
@@ -31,6 +32,10 @@ const Playground = () => {
 
   const handleDeleteComponent = (componentId: string) => {
     dispatch(deleteComponent(componentId));
+  };
+
+  const handleOpenPreview = () => {
+    window.open("/preview", "_blank", "noopener,noreferrer");
   };
 
   const renderComponents = playground.map((component) => {
@@ -55,6 +60,9 @@ const Playground = () => {
       <CanvasDrawer></CanvasDrawer>
       <SaveDeleteContainer>
         <SaveButton>Save website</SaveButton>
+        <PreviewButton onClick={handleOpenPreview}>
+          Preview Website
+        </PreviewButton>
         <DeleteButton onClick={handleDeleteWebsite}>
           Delete website
         </DeleteButton>
