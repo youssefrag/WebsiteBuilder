@@ -42,9 +42,9 @@ const ImageElementWidth = () => {
         value={typeCheckedValue() || ""}
         onChange={handleChange}
       >
+        <FormControlLabel value="25%" control={<Radio />} label="25%" />
         <FormControlLabel value="50%" control={<Radio />} label="50%" />
         <FormControlLabel value="75%" control={<Radio />} label="75%" />
-        <FormControlLabel value="100%" control={<Radio />} label="100%" />
       </RadioGroup>
     </FormControl>
   );

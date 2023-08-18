@@ -1,9 +1,7 @@
 import { createElement } from "react";
 import { Component } from "../store/playground/playground.types";
 
-import { Heading, Text } from "../store/canvas/canvas.types";
-
-import { isHeading, isText } from "./typeCheckers";
+import { isHeading, isText, isImage } from "./typeCheckers";
 
 export const createHtmlElements = (component: Component) => {
   if (component.type === "heading" && isHeading(component.details)) {
@@ -44,5 +42,19 @@ export const createHtmlElements = (component: Component) => {
     };
 
     return createElement("p", { style }, content);
+  }
+
+  if (component.type === "image" && isImage(component.details)) {
+    const {
+      details: { imageName, imageUrl, width },
+    } = component;
+
+    const style = {
+      width,
+      src: imageUrl,
+      alt: imageName,
+    };
+
+    return createElement("img", { ...style });
   }
 };

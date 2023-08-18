@@ -34,7 +34,7 @@ const Canvas = (props: CanvasPropsType) => {
 
   useEffect(() => {
     if (element === "image") {
-      dispatch(editCanvas({ imageName: "", imageUrl: "", width: "50%" }));
+      dispatch(editCanvas({ imageName: "", imageUrl: "", width: "25%" }));
     }
   }, [element]);
 

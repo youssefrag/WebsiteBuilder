@@ -33,7 +33,7 @@ const ImageElement = (props: ImageElementPropsType) => {
         editCanvas({
           imageName: "",
           imageUrl: "",
-          width: "100%",
+          width: "25%",
         })
       );
   }, []);
