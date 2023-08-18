@@ -75,15 +75,15 @@ const ImageElement = (props: ImageElementPropsType) => {
 
     if (canvas !== null && isImage(canvas)) {
       dispatch(editCanvas({ ...canvas, imageName, imageUrl }));
-    }
 
-    // dispatch(
-    //   addComponent({
-    //     details: canvas,
-    //     type: "image",
-    //     componentId: uuidv4(),
-    //   })
-    // );
+      dispatch(
+        addComponent({
+          details: canvas,
+          type: "image",
+          componentId: uuidv4(),
+        })
+      );
+    }
 
     props.closeDrawer();
   };
