@@ -22,8 +22,6 @@ function App() {
 
   const location = useLocation();
 
-  console.log(location.pathname);
-
   useEffect(() => {
     if (location.pathname === "/preview") {
       setPreview(true);

@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
+import { v4 as uuidv4 } from "uuid";
+
 import { selectUser } from "../../store/user/userSlice";
 import { selectPlayground } from "../../store/playground/playgroundSlice";
 
@@ -59,6 +61,22 @@ const SaveModal = () => {
       alert("Please add components before preview");
       return;
     }
+
+    const websiteData = {
+      name: websiteName,
+      owner: authorEmail,
+      websiteId: uuidv4(),
+      components: playground,
+    };
+
+    let response = await fetch("http://localhost:8000/websites/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(websiteData),
+    });
+    let result = await response.json();
+
+    console.log(result);
   };
 
   return (
@@ -85,7 +103,7 @@ const SaveModal = () => {
               onChange={handleAuthorEmailChange}
             />
           )}
-          <StyledButton>Save</StyledButton>
+          <StyledButton onClick={handleSave}>Save</StyledButton>
         </Box>
       </Modal>
     </div>

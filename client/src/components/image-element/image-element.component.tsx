@@ -57,8 +57,6 @@ const ImageElement = (props: ImageElementPropsType) => {
 
     const { url } = await resonse.json();
 
-    console.log(url);
-
     await fetch(url, {
       method: "PUT",
       headers: {
@@ -77,14 +75,10 @@ const ImageElement = (props: ImageElementPropsType) => {
 
     if (canvas !== null && isImage(canvas)) {
       await dispatch(editCanvas({ ...canvas, imageName, imageUrl }));
-
-      console.log(canvas);
     }
   };
 
   const handleAddToPlayground = async () => {
-    console.log(canvas);
-
     if (canvas !== null && isImage(canvas) && canvas.imageUrl === "") {
       alert("Upload photo before adding");
 

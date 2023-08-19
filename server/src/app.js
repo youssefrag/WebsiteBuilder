@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const usersRouter = require("./routes/users/users.router");
 const imagesRouter = require("./routes/images/images.router");
+const websitesRouter = require("./routes/websites/websites.router");
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 
 app.use("/users", usersRouter);
 app.use("/images", imagesRouter);
+app.use("/websites", websitesRouter);
 
 // app.get("/*", (req, res) => {
 //   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
