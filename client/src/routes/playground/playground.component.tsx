@@ -18,6 +18,7 @@ import {
   SingleComponentContainer,
   StyledDeleteIcon,
   PreviewButton,
+  StyledCta,
 } from "./playground.styles";
 
 import CanvasDrawer from "../../components/canvas-drawer/canvas-drawer.component";
@@ -63,21 +64,31 @@ const Playground = () => {
     );
   });
 
-  return (
-    <PlaygroundContainer>
-      <ComponentsContainer>{renderComponents}</ComponentsContainer>
-      <CanvasDrawer></CanvasDrawer>
-      <SaveDeleteContainer>
-        <SaveModal />
-        <PreviewButton onClick={handleOpenPreview}>
-          Preview Website
-        </PreviewButton>
-        <DeleteButton onClick={handleDeleteWebsite}>
-          reset playground
-        </DeleteButton>
-      </SaveDeleteContainer>
-    </PlaygroundContainer>
-  );
+  if (playground.length === 0) {
+    return (
+      <PlaygroundContainer>
+        <StyledCta>Start by adding components to your site</StyledCta>
+        <CanvasDrawer />
+      </PlaygroundContainer>
+    );
+  } else {
+    return (
+      <PlaygroundContainer>
+        <ComponentsContainer>{renderComponents}</ComponentsContainer>
+
+        <CanvasDrawer />
+        <SaveDeleteContainer>
+          <SaveModal />
+          <PreviewButton onClick={handleOpenPreview}>
+            Preview Website
+          </PreviewButton>
+          <DeleteButton onClick={handleDeleteWebsite}>
+            reset playground
+          </DeleteButton>
+        </SaveDeleteContainer>
+      </PlaygroundContainer>
+    );
+  }
 };
 
 export default Playground;

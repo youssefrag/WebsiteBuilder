@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { Box, Button, Stack } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -60,4 +60,9 @@ export const SaveDeleteContainer = styled(Box)(() => ({
   justifyContent: "center",
   marginTop: "3rem",
   gap: "2rem",
+}));
+
+export const StyledCta = styled(Typography)(() => ({
+  fontFamily: "Rubik",
+  fontSize: "3rem",
 }));

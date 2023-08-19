@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { v4 as uuidv4 } from "uuid";
 
 import { selectUser } from "../../store/user/userSlice";
-import { selectPlayground } from "../../store/playground/playgroundSlice";
+import {
+  resetPlayground,
+  selectPlayground,
+} from "../../store/playground/playgroundSlice";
 
 import { Box, Modal } from "@mui/material";
 
@@ -31,8 +34,8 @@ const SaveModal = () => {
   let navigate = useNavigate();
 
   const currentUser = useSelector(selectUser);
-
   const playground = useSelector(selectPlayground);
+  const dispatch = useDispatch();
 
   const [websiteName, setWebsiteName] = useState<string>("");
 
@@ -48,6 +51,7 @@ const SaveModal = () => {
     if (currentUser) {
       setAuthorEmail(currentUser.email);
     }
+    setWebsiteName("");
   }, []);
 
   const handleAuthorEmailChange = (e: React.FormEvent) => {
@@ -59,6 +63,16 @@ const SaveModal = () => {
   const handleSave = async () => {
     if (playground.length === 0) {
       alert("Please add components before preview");
+      return;
+    }
+
+    if (websiteName === "") {
+      alert("Please enter a name for your website");
+      return;
+    }
+
+    if (authorEmail === "") {
+      alert("Please enter the email of the owner");
       return;
     }
 
@@ -76,7 +90,10 @@ const SaveModal = () => {
     });
     let result = await response.json();
 
-    console.log(result);
+    if (result.message === "Website was created") {
+      dispatch(resetPlayground());
+      navigate("/websites");
+    }
   };
 
   return (
