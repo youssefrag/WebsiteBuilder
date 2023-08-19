@@ -12,7 +12,6 @@ import {
 
 import {
   SaveDeleteContainer,
-  SaveButton,
   DeleteButton,
   PlaygroundContainer,
   ComponentsContainer,
@@ -29,6 +28,10 @@ const Playground = () => {
   const dispatch = useDispatch();
 
   const handleDeleteWebsite = () => {
+    if (playground.length === 0) {
+      alert("There are no components to remove");
+      return;
+    }
     dispatch(resetPlayground());
   };
 
@@ -37,6 +40,10 @@ const Playground = () => {
   };
 
   const handleOpenPreview = () => {
+    if (playground.length === 0) {
+      alert("Please add components before preview");
+      return;
+    }
     window.open("/preview", "_blank", "noopener,noreferrer");
   };
 
@@ -66,7 +73,7 @@ const Playground = () => {
           Preview Website
         </PreviewButton>
         <DeleteButton onClick={handleDeleteWebsite}>
-          Delete website
+          reset playground
         </DeleteButton>
       </SaveDeleteContainer>
     </PlaygroundContainer>

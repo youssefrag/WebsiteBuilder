@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
 import { selectUser } from "../../store/user/userSlice";
+import { selectPlayground } from "../../store/playground/playgroundSlice";
 
 import { Box, Modal } from "@mui/material";
 
@@ -15,24 +16,37 @@ import {
 } from "./save-modal.styles";
 
 const SaveModal = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    if (playground.length === 0) {
+      alert("Please add components before saving");
+      return;
+    }
+    setOpen(true);
+  };
+  const handleClose = () => setOpen(false);
+
   let navigate = useNavigate();
 
   const currentUser = useSelector(selectUser);
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const playground = useSelector(selectPlayground);
 
   const [websiteName, setWebsiteName] = useState<string>("");
 
   const handleWebsiteNameChange = (e: React.FormEvent) => {
     const element = e.currentTarget as HTMLInputElement;
     const value = element.value;
-    const name = element.name;
     setWebsiteName(value);
   };
 
   const [authorEmail, setAuthorEmail] = useState<string>("");
+
+  useEffect(() => {
+    if (currentUser) {
+      setAuthorEmail(currentUser.email);
+    }
+  }, []);
 
   const handleAuthorEmailChange = (e: React.FormEvent) => {
     const element = e.currentTarget as HTMLInputElement;
@@ -40,7 +54,12 @@ const SaveModal = () => {
     setAuthorEmail(value);
   };
 
-  const handleSave = async () => {};
+  const handleSave = async () => {
+    if (playground.length === 0) {
+      alert("Please add components before preview");
+      return;
+    }
+  };
 
   return (
     <div>
