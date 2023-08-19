@@ -64,7 +64,7 @@ const websiteSchema = new mongoose.Schema({
     required: true,
   },
   components: {
-    type: [headingSchema || textSchema || imageSchema],
+    type: [headingSchema | textSchema | imageSchema],
     required: true,
   },
 });
