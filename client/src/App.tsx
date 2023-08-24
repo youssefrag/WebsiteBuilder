@@ -14,6 +14,7 @@ import LoginRegister from "./routes/login-register/login-register.component";
 import Websites from "./routes/websites/websites.component";
 import Playground from "./routes/playground/playground.component";
 import Preview from "./routes/preview/preview.component";
+import EditSite from "./routes/edit-site/edit-site.component";
 
 function App() {
   const [preview, setPreview] = useState(false);
@@ -41,6 +42,7 @@ function App() {
               element={currentUser ? <Websites /> : <LoginRegister />}
             />
             <Route path="/playground" element={<Playground />} />
+            <Route path="/edit-website/:websiteId" element={<EditSite />} />
           </Route>
         </Routes>
       )}

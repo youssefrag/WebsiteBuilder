@@ -18,6 +18,9 @@ export const playgroundSlice = createSlice({
     resetPlayground: (state) => {
       state.playground = [];
     },
+    setPlayground: (state, action: PayloadAction<Component[]>) => {
+      state.playground = action.payload;
+    },
     deleteComponent: (state, action: PayloadAction<string>) => {
       state.playground = state.playground.filter(
         (component) => component.componentId !== action.payload
@@ -26,7 +29,7 @@ export const playgroundSlice = createSlice({
   },
 });
 
-export const { addComponent, deleteComponent, resetPlayground } =
+export const { addComponent, deleteComponent, resetPlayground, setPlayground } =
   playgroundSlice.actions;
 
 type RootState = ReturnType<typeof store.getState>;

@@ -15,6 +15,8 @@ import {
   SitesContainer,
 } from "./websites.styles";
 
+import WebsiteCard from "../../components/website-card/website-card.component";
+
 const Websites = () => {
   const [websites, setWebsites] = useState<Component[]>([]);
 
@@ -46,7 +48,7 @@ const Websites = () => {
   }, []);
 
   const renderWebsites = websites.map((website: any) => {
-    return <h1>{website.name}</h1>;
+    return <WebsiteCard name={website.name} websiteId={website.websiteId} />;
   });
 
   return (

@@ -8,4 +8,8 @@ const getWebsitesForUser = async (email) => {
   return await websitesDataBase.find({ owner: email });
 };
 
-module.exports = { createWebsite, getWebsitesForUser };
+const getWebsiteComponents = async (websiteId) => {
+  return await websitesDataBase.findOne({ websiteId }, { components: 1 });
+};
+
+module.exports = { createWebsite, getWebsitesForUser, getWebsiteComponents };

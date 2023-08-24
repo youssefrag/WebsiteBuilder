@@ -19,6 +19,7 @@ export const PageTitle = styled(Typography)(() => ({
 export const SitesContainer = styled(Box)(() => ({
   display: "grid",
   gridTemplateColumns: "1fr 1fr 1fr 1fr",
+  columnGap: "5rem",
 }));
 
 export const CreateNew = styled(Button)(() => ({
