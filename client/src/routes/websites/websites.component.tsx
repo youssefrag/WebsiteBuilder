@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { PlaygroundSliceState } from "../../store/playground/playground.types";
+import { Component } from "../../store/playground/playground.types";
 
 import { useSelector } from "react-redux";
 
@@ -16,7 +16,7 @@ import {
 } from "./websites.styles";
 
 const Websites = () => {
-  const [websites, getWebsites] = useState<PlaygroundSliceState | []>([]);
+  const [websites, setWebsites] = useState<Component[]>([]);
 
   const navigate = useNavigate();
 
@@ -32,7 +32,11 @@ const Websites = () => {
         },
       }
     );
-    // console.log(response);
+    const res = await response.json();
+
+    if (res.message === "Websites succesfully fetched") {
+      setWebsites(res.websites);
+    }
   };
 
   useEffect(() => {
@@ -41,10 +45,15 @@ const Websites = () => {
     }
   }, []);
 
+  const renderWebsites = websites.map((website: any) => {
+    return <h1>{website.name}</h1>;
+  });
+
   return (
     <PageContainer>
       <PageTitle>My Websites</PageTitle>
       <SitesContainer>
+        {renderWebsites}
         <CreateNew onClick={() => navigate("/playground")}>
           Create new site!
         </CreateNew>

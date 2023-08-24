@@ -5,9 +5,7 @@ const createWebsite = async (websiteData) => {
 };
 
 const getWebsitesForUser = async (email) => {
-  const websites = await websitesDataBase.find({ owner: email });
-
-  return websites;
+  return await websitesDataBase.find({ owner: email });
 };
 
 module.exports = { createWebsite, getWebsitesForUser };
