@@ -15,6 +15,8 @@ import {
   setPlayground,
 } from "../../store/playground/playgroundSlice";
 
+import CanvasDrawer from "../../components/canvas-drawer/canvas-drawer.component";
+
 import {
   SaveDeleteContainer,
   DeleteButton,
@@ -22,7 +24,7 @@ import {
   ComponentsContainer,
   SingleComponentContainer,
   StyledDeleteIcon,
-  PreviewButton,
+  SaveButton,
   StyledCta,
 } from "./edit-site.styles";
 
@@ -30,7 +32,6 @@ const EditSite = () => {
   const { websiteId } = useParams();
 
   const dispatch = useDispatch();
-  //   console.log(websiteId);
 
   const getSiteComponents = async () => {
     let response = await fetch(
@@ -44,9 +45,6 @@ const EditSite = () => {
     );
     const res = await response.json();
 
-    console.log(res.components);
-    console.log(res.message);
-
     if (res.message === "Components succesfully fetched") {
       dispatch(setPlayground(res.components));
     }
@@ -56,7 +54,43 @@ const EditSite = () => {
     getSiteComponents();
   }, []);
 
-  return <div>EditSite</div>;
+  const playground = useSelector(selectPlayground);
+
+  const handleDeleteComponent = (componentId: string) => {
+    dispatch(deleteComponent(componentId));
+  };
+
+  const renderComponents = playground.map((component) => {
+    return (
+      <SingleComponentContainer
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+        key={component.componentId}
+      >
+        {createHtmlElements(component)}
+        <StyledDeleteIcon
+          onClick={() => handleDeleteComponent(component.componentId)}
+        />
+      </SingleComponentContainer>
+    );
+  });
+
+  return (
+    <PageContainer>
+      <ComponentsContainer>{renderComponents}</ComponentsContainer>
+
+      <CanvasDrawer />
+      <SaveDeleteContainer>
+        <SaveButton>Save Changes</SaveButton>
+
+        <DeleteButton>
+          {/* <DeleteButton onClick={handleDeleteWebsite}> */}
+          Delete Website
+        </DeleteButton>
+      </SaveDeleteContainer>
+    </PageContainer>
+  );
 };
 
 export default EditSite;
