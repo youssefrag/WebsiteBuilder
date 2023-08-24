@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -25,13 +25,14 @@ import {
   SingleComponentContainer,
   StyledDeleteIcon,
   SaveButton,
-  StyledCta,
 } from "./edit-site.styles";
 
 const EditSite = () => {
   const { websiteId } = useParams();
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const getSiteComponents = async () => {
     let response = await fetch(
@@ -60,6 +61,23 @@ const EditSite = () => {
     dispatch(deleteComponent(componentId));
   };
 
+  const handleSaveChanges = async () => {
+    let response = await fetch(
+      `http://localhost:8000/websites/edit-website/${websiteId}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(playground),
+      }
+    );
+    let result = await response.json();
+    if (result.message === "Website edited succesfully") {
+      navigate("/websites");
+    }
+  };
+
   const renderComponents = playground.map((component) => {
     return (
       <SingleComponentContainer
@@ -82,7 +100,7 @@ const EditSite = () => {
 
       <CanvasDrawer />
       <SaveDeleteContainer>
-        <SaveButton>Save Changes</SaveButton>
+        <SaveButton onClick={handleSaveChanges}>Save Changes</SaveButton>
 
         <DeleteButton>
           {/* <DeleteButton onClick={handleDeleteWebsite}> */}

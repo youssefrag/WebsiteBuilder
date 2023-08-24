@@ -2,6 +2,7 @@ const {
   createWebsite,
   getWebsitesForUser,
   getWebsiteComponents,
+  editWebsiteComponents,
 } = require("../../models/websites.model");
 
 const httpCreateWebsite = async (req, res) => {
@@ -30,8 +31,23 @@ const httpGetWebsitesComponents = async (req, res) => {
   });
 };
 
+const httpEditWebsiteComponents = async (req, res) => {
+  const { websiteId } = req.params;
+  const newComponents = req.body;
+
+  console.log(websiteId, newComponents);
+
+  const editedWebsite = await editWebsiteComponents(websiteId, newComponents);
+
+  return res.status(200).json({
+    editedWebsite,
+    message: "Website edited succesfully",
+  });
+};
+
 module.exports = {
   httpCreateWebsite,
   httpGetWebsitesForUser,
   httpGetWebsitesComponents,
+  httpEditWebsiteComponents,
 };
