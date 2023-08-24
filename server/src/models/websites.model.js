@@ -4,4 +4,10 @@ const createWebsite = async (websiteData) => {
   return await websitesDataBase.create(websiteData);
 };
 
-module.exports = { createWebsite };
+const getWebsitesForUser = async (email) => {
+  const websites = await websitesDataBase.find({ owner: email });
+
+  return websites;
+};
+
+module.exports = { createWebsite, getWebsitesForUser };

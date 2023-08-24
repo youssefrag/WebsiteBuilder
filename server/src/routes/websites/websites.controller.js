@@ -1,4 +1,7 @@
-const { createWebsite } = require("../../models/websites.model");
+const {
+  createWebsite,
+  getWebsitesForUser,
+} = require("../../models/websites.model");
 
 const httpCreateWebsite = async (req, res) => {
   const websiteData = req.body;
@@ -8,4 +11,14 @@ const httpCreateWebsite = async (req, res) => {
   });
 };
 
-module.exports = { httpCreateWebsite };
+const httpGetWebsitesForUser = async (req, res) => {
+  const { email } = req.params;
+  const websites = await getWebsitesForUser(email);
+  console.log(websites);
+  // return res.status(200)({
+  //   websites: await getWebsitesForUser(email),
+  //   message: "Websites succesfully fetched",
+  // });
+};
+
+module.exports = { httpCreateWebsite, httpGetWebsitesForUser };
