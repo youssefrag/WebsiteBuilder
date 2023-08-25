@@ -21,9 +21,14 @@ const editWebsiteComponents = async (websiteId, newComponents) => {
   });
 };
 
+const deleteWebsite = async (websiteId) => {
+  return await websitesDataBase.findOneAndDelete({ websiteId });
+};
+
 module.exports = {
   createWebsite,
   getWebsitesForUser,
   getWebsiteComponents,
   editWebsiteComponents,
+  deleteWebsite,
 };

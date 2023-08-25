@@ -3,6 +3,7 @@ const {
   getWebsitesForUser,
   getWebsiteComponents,
   editWebsiteComponents,
+  deleteWebsite,
 } = require("../../models/websites.model");
 
 const httpCreateWebsite = async (req, res) => {
@@ -35,8 +36,6 @@ const httpEditWebsiteComponents = async (req, res) => {
   const { websiteId } = req.params;
   const newComponents = req.body;
 
-  console.log(websiteId, newComponents);
-
   const editedWebsite = await editWebsiteComponents(websiteId, newComponents);
 
   return res.status(200).json({
@@ -45,9 +44,19 @@ const httpEditWebsiteComponents = async (req, res) => {
   });
 };
 
+const httpDeleteWebsite = async (req, res) => {
+  const { websiteId } = req.params;
+  const deletedWebsite = await deleteWebsite(websiteId);
+  return res.status(200).json({
+    message: "Website edited succesfully",
+    deletedWebsite,
+  });
+};
+
 module.exports = {
   httpCreateWebsite,
   httpGetWebsitesForUser,
   httpGetWebsitesComponents,
   httpEditWebsiteComponents,
+  httpDeleteWebsite,
 };

@@ -82,6 +82,21 @@ const EditSite = () => {
     }
   };
 
+  const handleDeleteWebsite = async () => {
+    let response = await fetch(
+      `http://localhost:8000/websites/delete-website/${websiteId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    let result = await response.json();
+
+    navigate("/websites");
+  };
+
   const renderComponents = playground.map((component) => {
     return (
       <SingleComponentContainer
@@ -106,8 +121,7 @@ const EditSite = () => {
       <SaveDeleteContainer>
         <SaveButton onClick={handleSaveChanges}>Save Changes</SaveButton>
 
-        <DeleteButton>
-          {/* <DeleteButton onClick={handleDeleteWebsite}> */}
+        <DeleteButton onClick={handleDeleteWebsite}>
           Delete Website
         </DeleteButton>
       </SaveDeleteContainer>
