@@ -15,6 +15,14 @@ interface WebsiteCardPropTypes {
 const WebsiteCard = (props: WebsiteCardPropTypes) => {
   const navigate = useNavigate();
 
+  const handleOpenPreview = () => {
+    window.open(
+      `/preview-website/${websiteId}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
   const { name, websiteId } = props;
   return (
     <CardContainer>
@@ -22,7 +30,7 @@ const WebsiteCard = (props: WebsiteCardPropTypes) => {
       <EditButton onClick={() => navigate(`/edit-website/${websiteId}`)}>
         Edit Site
       </EditButton>
-      <PreviewButton>Preview</PreviewButton>
+      <PreviewButton onClick={handleOpenPreview}>Preview</PreviewButton>
     </CardContainer>
   );
 };

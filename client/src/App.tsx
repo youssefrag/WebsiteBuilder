@@ -23,15 +23,27 @@ function App() {
 
   const location = useLocation();
 
+  console.log(location.pathname.split("/"));
+
+  console.log("preview is on:", preview);
+
   useEffect(() => {
-    if (location.pathname === "/preview") {
+    if (location.pathname === "/preview-playground") {
+      setPreview(true);
+    } else if (location.pathname.split("/")[1] === "preview-website") {
       setPreview(true);
     }
-  }, [preview]);
+  }, [location.pathname]);
 
   return (
     <>
-      {preview && <Preview />}
+      {/* {preview && <Preview />} */}
+      {preview && (
+        <Routes>
+          <Route path="/preview-playground" element={<Preview />} />
+          <Route path="/preview-website/:websiteId" element={<Preview />} />
+        </Routes>
+      )}
       {preview === false && (
         <Routes>
           <Route path="/" element={<Navigation />}>

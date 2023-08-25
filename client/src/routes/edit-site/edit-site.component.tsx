@@ -93,8 +93,11 @@ const EditSite = () => {
       }
     );
     let result = await response.json();
+    console.log(result);
 
-    navigate("/websites");
+    if (result.message === "Website edited succesfully") {
+      navigate("/websites");
+    }
   };
 
   const renderComponents = playground.map((component) => {
