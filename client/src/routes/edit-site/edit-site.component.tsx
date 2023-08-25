@@ -6,8 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { createHtmlElements } from "../../utils/createElements";
 
-import SaveModal from "../../components/save-modal/save-modal.component";
-
 import {
   resetPlayground,
   selectPlayground,
@@ -62,6 +60,11 @@ const EditSite = () => {
   };
 
   const handleSaveChanges = async () => {
+    if (playground.length === 0) {
+      alert("Website needs at least one component to save");
+      return;
+    }
+
     let response = await fetch(
       `http://localhost:8000/websites/edit-website/${websiteId}`,
       {
@@ -74,6 +77,7 @@ const EditSite = () => {
     );
     let result = await response.json();
     if (result.message === "Website edited succesfully") {
+      dispatch(resetPlayground());
       navigate("/websites");
     }
   };

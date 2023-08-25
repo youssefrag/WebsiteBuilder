@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 
 import { createHtmlElements } from "../../utils/createElements";
@@ -28,7 +30,11 @@ const Playground = () => {
 
   const dispatch = useDispatch();
 
-  const handleDeleteWebsite = () => {
+  useEffect(() => {
+    dispatch(resetPlayground());
+  }, []);
+
+  const handleResetPlayground = () => {
     if (playground.length === 0) {
       alert("There are no components to remove");
       return;
@@ -82,7 +88,7 @@ const Playground = () => {
           <PreviewButton onClick={handleOpenPreview}>
             Preview Website
           </PreviewButton>
-          <DeleteButton onClick={handleDeleteWebsite}>
+          <DeleteButton onClick={handleResetPlayground}>
             reset playground
           </DeleteButton>
         </SaveDeleteContainer>
