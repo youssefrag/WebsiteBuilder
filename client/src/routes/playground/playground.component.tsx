@@ -12,6 +12,8 @@ import {
   deleteComponent,
 } from "../../store/playground/playgroundSlice";
 
+import { editCanvas, selectCanvas } from "../../store/canvas/canvasSlice";
+
 import {
   SaveDeleteContainer,
   DeleteButton,
@@ -32,6 +34,14 @@ const Playground = () => {
 
   useEffect(() => {
     dispatch(resetPlayground());
+    dispatch(
+      editCanvas({
+        content: "",
+        fontSize: "small",
+        fontType: "Rubik",
+        color: "#e67e22",
+      })
+    );
   }, []);
 
   const handleResetPlayground = () => {
