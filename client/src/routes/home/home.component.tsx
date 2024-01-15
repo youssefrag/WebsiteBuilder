@@ -23,7 +23,8 @@ const Home = () => {
         <img
           alt="home=image"
           src="https://websitebuilder-bucket.s3.amazonaws.com/2cebe784226cb349db2ea728df8d9245"
-          style={{ width: "24rem" }}
+          // style={{ width: "24rem" }}
+          style={{ width: "100%" }}
         />
       </PictureContainer>
     </HomeContainer>
