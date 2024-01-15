@@ -23,10 +23,6 @@ function App() {
 
   const location = useLocation();
 
-  console.log(location.pathname.split("/"));
-
-  console.log("preview is on:", preview);
-
   useEffect(() => {
     if (location.pathname === "/preview-playground") {
       setPreview(true);
@@ -37,7 +33,6 @@ function App() {
 
   return (
     <>
-      {/* {preview && <Preview />} */}
       {preview && (
         <Routes>
           <Route path="/preview-playground" element={<Preview />} />

@@ -7,7 +7,7 @@ export const HomeContainer = styled(Box)(() => ({
   padding: "4rem 7.2rem",
   height: "84vh",
   display: "flex",
-  alignItems: "center",
+  alignItems: "flex-start",
   gap: "3rem",
   justifyContent: "space-between",
 }));
@@ -36,5 +36,6 @@ export const DescriptionTitle = styled(Typography)(() => ({
 }));
 
 export const PictureContainer = styled(Box)(() => ({
-  border: "10px solid",
+  border: "1px solid",
+  // width: "6rem",
 }));

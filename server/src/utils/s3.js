@@ -5,6 +5,8 @@ const { promisify } = require("util");
 
 const randomBytes = promisify(crypto.randomBytes);
 
+require("aws-sdk/lib/maintenance_mode_message").suppress = true;
+
 require("dotenv").config();
 
 const region = "us-east-1";

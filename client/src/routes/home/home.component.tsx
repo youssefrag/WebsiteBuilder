@@ -19,7 +19,13 @@ const Home = () => {
           features and organize your components with only a couple of clicks!
         </DescriptionText>
       </DescriptionContainer>
-      <PictureContainer></PictureContainer>
+      <PictureContainer>
+        <img
+          alt="home=image"
+          src="https://websitebuilder-bucket.s3.amazonaws.com/2cebe784226cb349db2ea728df8d9245"
+          style={{ width: "24rem" }}
+        />
+      </PictureContainer>
     </HomeContainer>
   );
 };
