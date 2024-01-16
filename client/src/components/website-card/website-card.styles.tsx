@@ -5,7 +5,7 @@ import { Box, Typography, Button } from "@mui/material";
 export const CardContainer = styled(Box)(() => ({
   backgroundColor: "#fae5d3",
   height: "16rem",
-  width: "16rem",
+  width: "14rem",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",

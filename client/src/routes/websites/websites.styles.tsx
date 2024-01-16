@@ -16,15 +16,25 @@ export const PageTitle = styled(Typography)(() => ({
   color: "#333",
 }));
 
-export const SitesContainer = styled(Box)(() => ({
+export const SitesContainer = styled(Box)(({ theme }) => ({
   display: "grid",
   gridTemplateColumns: "1fr 1fr 1fr 1fr",
-  columnGap: "5rem",
+  columnGap: "3rem",
+  rowGap: "3rem",
+  [theme.breakpoints.down("lg")]: {
+    gridTemplateColumns: "1fr 1fr 1fr",
+  },
+  [theme.breakpoints.down("md")]: {
+    gridTemplateColumns: "1fr 1fr",
+  },
+  [theme.breakpoints.down("sm")]: {
+    gridTemplateColumns: "1fr",
+  },
 }));
 
 export const CreateNew = styled(Button)(() => ({
-  height: "16rem",
-  width: "16rem",
+  height: "14rem",
+  width: "14rem",
   backgroundColor: "#e67e22",
   borderRadius: "50%",
   fontFamily: "Rubik",
