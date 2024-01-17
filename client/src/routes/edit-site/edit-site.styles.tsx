@@ -55,11 +55,15 @@ export const SaveButton = styled(Button)(() => ({
   },
 }));
 
-export const SaveDeleteContainer = styled(Box)(() => ({
+export const SaveDeleteContainer = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   marginTop: "3rem",
   gap: "2rem",
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
 }));
 
 export const StyledCta = styled(Typography)(() => ({
