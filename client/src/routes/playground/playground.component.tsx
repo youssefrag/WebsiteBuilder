@@ -61,7 +61,7 @@ const Playground = () => {
       alert("Please add components before preview");
       return;
     }
-    window.open("/preview-playground", "_blank", "noopener,noreferrer");
+    window.open("/#/preview-playground", "_blank", "noopener,noreferrer");
   };
 
   const renderComponents = playground.map((component) => {

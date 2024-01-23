@@ -17,7 +17,7 @@ const WebsiteCard = (props: WebsiteCardPropTypes) => {
 
   const handleOpenPreview = () => {
     window.open(
-      `/preview-website/${websiteId}`,
+      `/#/preview-website/${websiteId}`,
       "_blank",
       "noopener,noreferrer"
     );
