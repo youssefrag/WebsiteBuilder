@@ -22,15 +22,12 @@ const Preview = () => {
   const [previewComponents, setPreviewComponents] = useState<Component[]>([]);
 
   const getWebsiteComponents = async (websiteId: string) => {
-    let response = await fetch(
-      `http://localhost:8000/websites/components/${websiteId}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let response = await fetch(`/websites/components/${websiteId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const res = await response.json();
 
     if (res.message === "Components succesfully fetched") {

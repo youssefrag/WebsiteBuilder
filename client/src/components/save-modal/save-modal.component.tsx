@@ -83,7 +83,7 @@ const SaveModal = () => {
       components: playground,
     };
 
-    let response = await fetch("http://localhost:8000/websites/create", {
+    let response = await fetch("/websites/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(websiteData),

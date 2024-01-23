@@ -25,15 +25,12 @@ const Websites = () => {
   const currentUser = useSelector(selectUser);
 
   const getWebsitesForUser = async (email: string) => {
-    let response = await fetch(
-      `http://localhost:8000/websites/user-websites/${email}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let response = await fetch(`/user-websites/${email}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const res = await response.json();
 
     if (res.message === "Websites succesfully fetched") {

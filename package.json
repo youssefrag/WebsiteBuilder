@@ -1,20 +1,24 @@
 {
-  "name": "WebsiteBuilder",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-server": "node server/src/server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/youssefrag/WebsiteBuilder.git"
+    "build": "npx tsc",
+    "start": "node src/server.js",
+    "watch": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/youssefrag/WebsiteBuilder/issues"
+  "dependencies": {
+    "aws-sdk": "^2.1438.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.2"
   },
-  "homepage": "https://github.com/youssefrag/WebsiteBuilder#readme"
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }

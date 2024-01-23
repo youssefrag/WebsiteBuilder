@@ -33,15 +33,12 @@ const EditSite = () => {
   const navigate = useNavigate();
 
   const getSiteComponents = async () => {
-    let response = await fetch(
-      `http://localhost:8000/websites/components/${websiteId}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let response = await fetch(`/websites/components/${websiteId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     const res = await response.json();
 
     if (res.message === "Components succesfully fetched") {
@@ -65,16 +62,13 @@ const EditSite = () => {
       return;
     }
 
-    let response = await fetch(
-      `http://localhost:8000/websites/edit-website/${websiteId}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(playground),
-      }
-    );
+    let response = await fetch(`/websites/edit-website/${websiteId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(playground),
+    });
     let result = await response.json();
     if (result.message === "Website edited succesfully") {
       dispatch(resetPlayground());
@@ -83,15 +77,12 @@ const EditSite = () => {
   };
 
   const handleDeleteWebsite = async () => {
-    let response = await fetch(
-      `http://localhost:8000/websites/delete-website/${websiteId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let response = await fetch(`/websites/delete-website/${websiteId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     let result = await response.json();
     console.log(result);
 
