@@ -25,7 +25,7 @@ const Websites = () => {
   const currentUser = useSelector(selectUser);
 
   const getWebsitesForUser = async (email: string) => {
-    let response = await fetch(`/user-websites/${email}`, {
+    let response = await fetch(`/websites/user-websites/${email}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
