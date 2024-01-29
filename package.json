@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node src/server.js",
-    "watch": "nodemon src/server.js"
+    "watch": "nodemon src/server.js",
+    "main-build": "npm install && cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
